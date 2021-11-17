@@ -14,7 +14,15 @@ class MonstersService {
     )
     AppState.monsters = res.data.results
     AppState.nextPage = res.data.next.slice(32)
-    console.log(AppState.nextPage)
+    logger.log(AppState.nextPage)
+  }
+
+  async changePage(page){
+    const res = await monstersApi.get('' + page)
+    logger.log('change page res', res.data)
+    AppState.monsters = res.data.results
+    AppState.nextPage = res.data.next.slice(32)
+    AppState.previousPage = res.data.previous.slice(32)
   }
 }
 export const monstersService = new MonstersService()
