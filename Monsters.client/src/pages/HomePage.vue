@@ -3,7 +3,18 @@
     <button class="btn btn-primary" @click.prevent="getMonsters()">
       Get Monsters
     </button>
-    <button class="btn btn-primary" @click.prevent="changePage(nextPage)">
+    <button
+      v-if="nextPage"
+      class="btn btn-primary"
+      @click.prevent="changePage(nextPage)"
+    >
+      change page
+    </button>
+    <button
+      v-if="previousPage"
+      class="btn btn-primary"
+      @click.prevent="changePage(previousPage)"
+    >
       change page
     </button>
     <h1>Yo</h1>
