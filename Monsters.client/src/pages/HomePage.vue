@@ -3,20 +3,34 @@
     <button class="btn btn-primary" @click.prevent="getMonsters()">
       Get Monsters
     </button>
+    <button class="btn btn-primary" @click.prevent="changePage(nextPage)">
+      change page
+    </button>
     <h1>Yo</h1>
   </div>
 </template>
 
 
 <script>
+import { computed } from "@vue/reactivity"
 import { monstersService } from "../services/MonstersService"
 import Pop from "../utils/Pop"
+import { AppState } from "../AppState"
 export default {
   setup() {
     return {
+      previousPage: computed(() => AppState.previousPage),
+      nextPage: computed(() => AppState.nextPage),
       async getMonsters() {
         try {
           await monstersService.getMonsters()
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      },
+      async changePage(page) {
+        try {
+          await monstersService.changePage(page)
         } catch (error) {
           Pop.toast(error, 'error')
         }
