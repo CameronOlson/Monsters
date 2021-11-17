@@ -8,14 +8,14 @@
       class="btn btn-primary"
       @click.prevent="changePage(nextPage)"
     >
-      change page
+      next page
     </button>
     <button
       v-if="previousPage"
       class="btn btn-primary"
       @click.prevent="changePage(previousPage)"
     >
-      change page
+      previous page
     </button>
     <h1>Yo</h1>
   </div>
