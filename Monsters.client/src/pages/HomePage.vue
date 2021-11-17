@@ -1,23 +1,30 @@
 <template>
-  <div class="component">
-    <button class="btn btn-primary" @click.prevent="getMonsters()">
-      Get Monsters
-    </button>
-    <button
-      v-if="nextPage"
-      class="btn btn-primary"
-      @click.prevent="changePage(nextPage)"
-    >
-      change page
-    </button>
-    <button
-      v-if="previousPage"
-      class="btn btn-primary"
-      @click.prevent="changePage(previousPage)"
-    >
-      change page
-    </button>
-    <h1>Yo</h1>
+  <div class="container">
+    <div class="row">
+      <div class="component">
+        <button class="btn btn-primary" @click.prevent="getMonsters()">
+          Get Monsters
+        </button>
+        <button
+          v-if="nextPage"
+          class="btn btn-primary"
+          @click.prevent="changePage(nextPage)"
+        >
+          next page
+        </button>
+        <button
+          v-if="previousPage"
+          class="btn btn-primary"
+          @click.prevent="changePage(previousPage)"
+        >
+          previous page
+        </button>
+        <h1>Yo</h1>
+      </div>
+    </div>
+    <div class="row">
+      <MonsterCard v-for="m in monsters" :key="m.name" :monster="m" />
+    </div>
   </div>
 </template>
 
@@ -30,6 +37,7 @@ import { AppState } from "../AppState"
 export default {
   setup() {
     return {
+      monsters: computed(() => AppState.monsters),
       previousPage: computed(() => AppState.previousPage),
       nextPage: computed(() => AppState.nextPage),
       async getMonsters() {
