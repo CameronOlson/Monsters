@@ -13,6 +13,8 @@ class MonstersService {
     logger.log('this is Monsters for the project', res.data
     )
     AppState.monsters = res.data.results
+    AppState.nextPage = res.data.next.slice(32)
+    console.log(AppState.nextPage)
   }
 }
 export const monstersService = new MonstersService()
