@@ -18,6 +18,7 @@ class MonstersService {
   }
 
   async changePage(page){
+    AppState.monsters = []
     page.slice(32)
     const res = await monstersApi.get(page)
     logger.log('change page res', res.data)
