@@ -4,8 +4,13 @@
     data-bs-toggle="modal"
     :data-bs-target="'#monster' + monster.slug"
   >
-    <div class="card-body">
-      {{ monster.name }}
+    <div class="col-12 card-body monster-card">
+      <div class="col-3">
+        {{ monster.name }}
+      </div>
+      <div class="col-3">CR:{{ monster.challenge_rating }}</div>
+      <div class="col-3">AC:{{ monster.armor_class }}</div>
+      <div class="col-3">HP: {{ monster.hit_points }}</div>
     </div>
   </button>
   <Modal :id="'monster' + monster.slug">
@@ -35,4 +40,8 @@ export default {
 
 
 <style lang="scss" scoped>
+.monster-card {
+  display: flex;
+  justify-content: space-between;
+}
 </style>

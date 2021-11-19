@@ -1,19 +1,25 @@
 <template>
   <div class="container">
     <div class="row">
-      <button class="btn btn-primary" @click.prevent="getMonsters()">
+      <button class="m-1 btn btn-primary" @click.prevent="getMonsters()">
         Get Monsters
       </button>
+      <button class="m-1 btn btn-primary" @click="toggleAscending()">
+        Toggle by AC
+      </button>
+      <!-- <button class="m-1 btn btn-primary" @click="lowFilter = !lowFilter">
+        ScoreSorter
+      </button> -->
       <button
         v-if="nextPage"
-        class="btn btn-primary"
+        class="btn btn-primary m-1"
         @click.prevent="changePage(nextPage)"
       >
         next page
       </button>
       <button
         v-if="previousPage"
-        class="btn btn-primary"
+        class="btn btn-primary m-1"
         @click.prevent="changePage(previousPage)"
       >
         previous page
@@ -27,19 +33,38 @@
 
 
 <script>
-import { computed } from "@vue/reactivity"
+import { computed, ref } from "@vue/reactivity"
 import { monstersService } from "../services/MonstersService"
 import Pop from "../utils/Pop"
 import { AppState } from "../AppState"
 export default {
   setup() {
+    const ascending = ref(true)
+
+    function scoreSorter(a, b) {
+      if (ascending.value) {
+        return b.armor_class - a.armor_class
+      }
+      return a.armor_class - b.armor_class
+    }
     return {
-      monsters: computed(() => AppState.monsters),
+      ascending,
+      monsters: computed(() => AppState.monsters.sort(scoreSorter)),
+      toggleAscending() {
+        ascending.value = !ascending.value
+      },
       previousPage: computed(() => AppState.previousPage),
       nextPage: computed(() => AppState.nextPage),
       async getMonsters() {
         try {
           await monstersService.getMonsters()
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      },
+      async sortMonsters() {
+        try {
+          AppState.monsters.sort()
         } catch (error) {
           Pop.toast(error, 'error')
         }
