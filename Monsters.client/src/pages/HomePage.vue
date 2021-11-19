@@ -31,20 +31,19 @@ import { computed } from "@vue/reactivity"
 import { monstersService } from "../services/MonstersService"
 import Pop from "../utils/Pop"
 import { AppState } from "../AppState"
-import { watchEffect } from '@vue/runtime-core'
 export default {
   setup() {
-    watchEffect(async () => {
-      try {
-        await monstersService.getMonsters()
-      } catch (error) {
-        Pop.toast(error, 'error')
-      }
-    })
     return {
       monsters: computed(() => AppState.monsters),
       previousPage: computed(() => AppState.previousPage),
       nextPage: computed(() => AppState.nextPage),
+      async getMonsters() {
+        try {
+          await monstersService.getMonsters()
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      },
       async changePage(page) {
         try {
           await monstersService.changePage(page)
