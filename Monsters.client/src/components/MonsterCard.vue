@@ -19,6 +19,9 @@
     </template>
     <template #modal-body>
       <h1>{{ monster.name }}</h1>
+      <div>AC:{{ monster.armor_class }}</div>
+      <div>HP: {{ monster.hit_points }}</div>
+      <div>CR:{{ monster.challenge_rating }}</div>
     </template>
   </Modal>
 </template>
