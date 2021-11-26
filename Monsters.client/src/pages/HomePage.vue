@@ -66,6 +66,7 @@ export default {
         ascending.value = !ascending.value
       },
       zeroFilter() {
+        AppState.monsters
         const result = AppState.monsters.filter(m => m.challenge_rating === "1/4" || m.challenge_rating === "1/2" || m.challenge_rating === "1")
         console.log(result)
         AppState.monsters = result
