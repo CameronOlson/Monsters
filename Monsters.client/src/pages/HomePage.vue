@@ -62,9 +62,9 @@ export default {
         ascending.value = !ascending.value
       },
       zeroFilter() {
-        const result = AppState.monsters.filter(m => m.challenge_rating === "1/4")
+        const result = AppState.monsters.filter(m => m.challenge_rating === "1/4" || m.challenge_rating === "1/2" || m.challenge_rating === "1")
         console.log(result)
-        return result
+        AppState.monsters = result
       },
       previousPage: computed(() => AppState.previousPage),
       nextPage: computed(() => AppState.nextPage),
