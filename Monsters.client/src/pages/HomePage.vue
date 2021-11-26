@@ -7,7 +7,9 @@
       <button class="m-1 btn btn-primary" @click="toggleAscending()">
         Toggle by AC
       </button>
-      <button class="m-1 btn btn-primary">"0 - 1"</button>
+      <button class="m-1 btn btn-primary" @click.prevent="zeroFilter()">
+        "0 - 1"
+      </button>
       <button class="m-1 btn btn-primary">2 - 5</button>
       <button class="m-1 btn btn-primary">6 - 10</button>
       <button class="m-1 btn btn-primary">10 - 15</button>
@@ -58,6 +60,11 @@ export default {
       monsters: computed(() => AppState.monsters.sort(scoreSorter)),
       toggleAscending() {
         ascending.value = !ascending.value
+      },
+      zeroFilter() {
+        const result = AppState.monsters.filter(m => m.challenge_rating === "1/4")
+        console.log(result)
+        return result
       },
       previousPage: computed(() => AppState.previousPage),
       nextPage: computed(() => AppState.nextPage),
