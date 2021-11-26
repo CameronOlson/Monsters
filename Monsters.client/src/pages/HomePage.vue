@@ -7,6 +7,12 @@
       <button class="m-1 btn btn-primary" @click="toggleAscending()">
         Toggle by AC
       </button>
+      <button class="m-1 btn btn-primary">"0 - 1"</button>
+      <button class="m-1 btn btn-primary">2 - 5</button>
+      <button class="m-1 btn btn-primary">6 - 10</button>
+      <button class="m-1 btn btn-primary">10 - 15</button>
+      <button class="m-1 btn btn-primary">15 - 20</button>
+
       <!-- <button class="m-1 btn btn-primary" @click="lowFilter = !lowFilter">
         ScoreSorter
       </button> -->
