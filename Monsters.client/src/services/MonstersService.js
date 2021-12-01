@@ -27,17 +27,11 @@ class MonstersService {
     AppState.monsters = res.data.results
   }
   async getMonstersByName(query) {
-    const mySentence = query;
-    const words = mySentence.split(" ");
+    const words = query.split(" ");
     
     for (let i = 0; i < words.length; i++) {
       words[i] = words[i][0].toUpperCase() + words[i].substr(1).toLowerCase();
     }
-
-
-
-   
-
     
     const res = await searchApi.get('?name=' + words.join('+'))
     logger.log(res.request.responseURL)
