@@ -6,6 +6,10 @@ const monstersApi = axios.create({
   baseURL: 'https://api.open5e.com/monsters/'
 })
 
+const searchApi = axios.create({
+  baseURL: 'https://api.open5e.com/monsters'
+})
+
 class MonstersService {
 
   async getMonsters() {
@@ -15,6 +19,13 @@ class MonstersService {
     AppState.monsters = res.data.results
     AppState.nextPage = res.data.next
     logger.log(AppState.nextPage)
+  }
+
+  async getMonstersBySearch(query) {
+    debugger
+    const res = await searchApi.get('?type=' + query)
+    logger.log('this is the res query', res)
+    AppState.monsters = res.data.results
   }
 
   async changePage(page){

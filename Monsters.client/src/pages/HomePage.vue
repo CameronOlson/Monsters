@@ -1,6 +1,26 @@
 <template>
   <div class="container">
     <div class="row">
+      <form
+        @submit.prevent="findMonstersByQuery()"
+        class="bg-white rounded elevation-1"
+      >
+        <div class="form-group d-flex align-items-center">
+          <label for="search" class="sr-only"></label>
+          <input
+            v-model="query"
+            type="text"
+            name="search"
+            required
+            class="form-control bg-white border-0"
+            placeholder="search"
+          />
+          <button class="btn px-2 py-0 selectable">
+            <i class="mdi mdi-magnify"></i>
+          </button>
+        </div>
+      </form>
+
       <button class="m-1 btn btn-primary" @click.prevent="getMonsters()">
         Get Monsters
       </button>
@@ -8,7 +28,7 @@
         Toggle by AC
       </button>
       <button class="m-1 btn btn-primary" @click.prevent="zeroFilter()">
-        "0 - 1"
+        0 - 1
       </button>
       <button class="m-1 btn btn-primary" @click="fiveFilter()">2 - 5</button>
       <button class="m-1 btn btn-primary" @click="tenFilter()">6 - 10</button>
@@ -51,6 +71,7 @@ import Pop from "../utils/Pop"
 import { AppState } from "../AppState"
 export default {
   setup() {
+    const query = ref('')
     const ascending = ref(true)
 
     function scoreSorter(a, b) {
@@ -60,6 +81,7 @@ export default {
       return a.armor_class - b.armor_class
     }
     return {
+      query,
       ascending,
       monsters: computed(() => AppState.monsters.sort(scoreSorter)),
       toggleAscending() {
@@ -100,6 +122,14 @@ export default {
       async getMonsters() {
         try {
           await monstersService.getMonsters()
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      },
+      async findMonstersByQuery() {
+        try {
+
+          await monstersService.getMonstersBySearch(query.value)
         } catch (error) {
           Pop.toast(error, 'error')
         }
