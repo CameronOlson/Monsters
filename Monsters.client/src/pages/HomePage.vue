@@ -27,21 +27,157 @@
       <button class="m-1 btn btn-primary" @click="toggleAscending()">
         Toggle by AC
       </button>
-      <button class="m-1 btn btn-primary" @click.prevent="zeroFilter()">
-        0 - 1
-      </button>
-      <button class="m-1 btn btn-primary" @click="fiveFilter()">2 - 5</button>
-      <button class="m-1 btn btn-primary" @click="tenFilter()">6 - 10</button>
-      <button class="m-1 btn btn-primary" @click="fifteenFilter()">
-        10 - 15
-      </button>
-      <button class="m-1 btn btn-primary" @click="twentyFilter()">
-        15 - 20
-      </button>
+      <div class="btn-group">
+        <button
+          class="btn btn-primary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Filter Challenge Rating
+        </button>
+        <ul class="dropdown-menu">
+          <li
+            @click.prevent="filterByChallengeRating('1%2F8')"
+            class="dropdown-item selectable"
+          >
+            1/8
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('1%2F4')"
+            class="dropdown-item selectable"
+          >
+            1/4
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('1%2F2')"
+            class="dropdown-item selectable"
+          >
+            1/2
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('1')"
+            class="dropdown-item selectable"
+          >
+            1
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('2')"
+            class="dropdown-item selectable"
+          >
+            2
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('3')"
+            class="dropdown-item selectable"
+          >
+            3
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('4')"
+            class="dropdown-item selectable"
+          >
+            4
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('5')"
+            class="dropdown-item selectable"
+          >
+            5
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('6')"
+            class="dropdown-item selectable"
+          >
+            6
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('7')"
+            class="dropdown-item selectable"
+          >
+            7
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('8')"
+            class="dropdown-item selectable"
+          >
+            8
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('9')"
+            class="dropdown-item selectable"
+          >
+            9
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('10')"
+            class="dropdown-item selectable"
+          >
+            10
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('11')"
+            class="dropdown-item selectable"
+          >
+            11
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('12')"
+            class="dropdown-item selectable"
+          >
+            12
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('13')"
+            class="dropdown-item selectable"
+          >
+            13
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('14')"
+            class="dropdown-item selectable"
+          >
+            14
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('15')"
+            class="dropdown-item selectable"
+          >
+            15
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('16')"
+            class="dropdown-item selectable"
+          >
+            16
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('17')"
+            class="dropdown-item selectable"
+          >
+            17
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('18')"
+            class="dropdown-item selectable"
+          >
+            18
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('19')"
+            class="dropdown-item selectable"
+          >
+            19
+          </li>
+          <li
+            @click.prevent="filterByChallengeRating('20')"
+            class="dropdown-item selectable"
+          >
+            20
+          </li>
+        </ul>
+      </div>
 
-      <!-- <button class="m-1 btn btn-primary" @click="lowFilter = !lowFilter">
-        ScoreSorter
-      </button> -->
       <button
         v-if="nextPage"
         class="btn btn-primary m-1"
@@ -87,35 +223,8 @@ export default {
       toggleAscending() {
         ascending.value = !ascending.value
       },
-      async zeroFilter() {
-        await monstersService.getMonsters()
-        const result = AppState.monsters.filter(m => m.challenge_rating === "1/4" || m.challenge_rating === "1/2" || m.challenge_rating === "1")
-        console.log(result)
-        AppState.monsters = result
-      },
-      async fiveFilter() {
-        await monstersService.getMonsters()
-        const result = AppState.monsters.filter(m => m.challenge_rating === "2" || m.challenge_rating === "3" || m.challenge_rating === "4" || m.challenge_rating === "5")
-        console.log(result)
-        AppState.monsters = result
-      },
-      async tenFilter() {
-        await monstersService.getMonsters()
-        const result = AppState.monsters.filter(m => m.challenge_rating === "6" || m.challenge_rating === "7" || m.challenge_rating === "8" || m.challenge_rating === "9" || m.challenge_rating === "10")
-        console.log(result)
-        AppState.monsters = result
-      },
-      async fifteenFilter() {
-        await monstersService.getMonsters()
-        const result = AppState.monsters.filter(m => m.challenge_rating === "11" || m.challenge_rating === "12" || m.challenge_rating === "13" || m.challenge_rating === "14" || m.challenge_rating === "15")
-        console.log(result)
-        AppState.monsters = result
-      },
-      async twentyFilter() {
-        await monstersService.getMonsters()
-        const result = AppState.monsters.filter(m => m.challenge_rating === "16" || m.challenge_rating === "17" || m.challenge_rating === "18" || m.challenge_rating === "19" || m.challenge_rating === "20")
-        console.log(result)
-        AppState.monsters = result
+      async filterByChallengeRating(rating) {
+        await monstersService.getMonstersByChallengeRating(rating)
       },
       previousPage: computed(() => AppState.previousPage),
       nextPage: computed(() => AppState.nextPage),

@@ -54,5 +54,10 @@ class MonstersService {
     AppState.nextPage = res.data.next
     AppState.previousPage = res.data.previous
   }
+  async getMonstersByChallengeRating(rating){
+    const res = await monstersApi.get('?challenge_rating=' + rating)
+    logger.log('challenge rating res', res.data)
+    AppState.monsters = res.data.results
+  }
 }
 export const monstersService = new MonstersService()
