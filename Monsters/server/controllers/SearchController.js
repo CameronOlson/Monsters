@@ -2,7 +2,7 @@ import { monstersService } from '../services/MonstersService'
 import BaseController from '../utils/BaseController'
 export class SearchController extends BaseController {
   constructor() {
-    super('https://api.open5e.com/monsters/?challenge_rating=&armor_class=&type=')
+    super('https://api.open5e.com/monsters/?type=')
     this.router
       .get('', this.getMonstersByType)
   }

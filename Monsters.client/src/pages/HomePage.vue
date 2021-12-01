@@ -129,7 +129,8 @@ export default {
       async findMonstersByQuery() {
         try {
 
-          await monstersService.getMonstersBySearch(query.value)
+          // await monstersService.getMonstersBySearch(query.value)
+          await monstersService.getMonstersByName(query.value)
         } catch (error) {
           Pop.toast(error, 'error')
         }

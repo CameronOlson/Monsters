@@ -22,11 +22,26 @@ class MonstersService {
   }
 
   async getMonstersBySearch(query) {
-    debugger
     const res = await searchApi.get('?type=' + query)
     logger.log('this is the res query', res)
     AppState.monsters = res.data.results
   }
+  async getMonstersByName(query) {
+    const mySentence = query;
+    const words = mySentence.split(" ");
+    
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+      
+    }
+   
+
+    
+    const res = await searchApi.get('?name=' + words)
+    logger.log(res.request.responseURL)
+    AppState.monsters = res.data.results
+  }
+
 
   async changePage(page){
     AppState.monsters = []
