@@ -65,28 +65,32 @@ export default {
       toggleAscending() {
         ascending.value = !ascending.value
       },
-      zeroFilter() {
-        AppState.monsters
+      async zeroFilter() {
+        await monstersService.getMonsters()
         const result = AppState.monsters.filter(m => m.challenge_rating === "1/4" || m.challenge_rating === "1/2" || m.challenge_rating === "1")
         console.log(result)
         AppState.monsters = result
       },
-      fiveFilter() {
+      async fiveFilter() {
+        await monstersService.getMonsters()
         const result = AppState.monsters.filter(m => m.challenge_rating === "2" || m.challenge_rating === "3" || m.challenge_rating === "4" || m.challenge_rating === "5")
         console.log(result)
         AppState.monsters = result
       },
-      tenFilter() {
+      async tenFilter() {
+        await monstersService.getMonsters()
         const result = AppState.monsters.filter(m => m.challenge_rating === "6" || m.challenge_rating === "7" || m.challenge_rating === "8" || m.challenge_rating === "9" || m.challenge_rating === "10")
         console.log(result)
         AppState.monsters = result
       },
-      fifteenFilter() {
+      async fifteenFilter() {
+        await monstersService.getMonsters()
         const result = AppState.monsters.filter(m => m.challenge_rating === "11" || m.challenge_rating === "12" || m.challenge_rating === "13" || m.challenge_rating === "14" || m.challenge_rating === "15")
         console.log(result)
         AppState.monsters = result
       },
-      twentyFilter() {
+      async twentyFilter() {
+        await monstersService.getMonsters()
         const result = AppState.monsters.filter(m => m.challenge_rating === "16" || m.challenge_rating === "17" || m.challenge_rating === "18" || m.challenge_rating === "19" || m.challenge_rating === "20")
         console.log(result)
         AppState.monsters = result
