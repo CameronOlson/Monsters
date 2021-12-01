@@ -31,13 +31,15 @@ class MonstersService {
     const words = mySentence.split(" ");
     
     for (let i = 0; i < words.length; i++) {
-      words[i] = words[i][0].toUpperCase() + words[i].substr(1);
-      
+      words[i] = words[i][0].toUpperCase() + words[i].substr(1).toLowerCase();
     }
+
+
+
    
 
     
-    const res = await searchApi.get('?name=' + words)
+    const res = await searchApi.get('?name=' + words.join('+'))
     logger.log(res.request.responseURL)
     AppState.monsters = res.data.results
   }
