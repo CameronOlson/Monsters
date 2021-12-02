@@ -175,6 +175,12 @@
           >
             20
           </li>
+          <li
+            @click.prevent="getHighChallengeRatingMonsters()"
+            class="dropdown-item selectable"
+          >
+            21+
+          </li>
         </ul>
       </div>
 
@@ -220,14 +226,17 @@ export default {
       query,
       ascending,
       monsters: computed(() => AppState.monsters.sort(scoreSorter)),
+      previousPage: computed(() => AppState.previousPage),
+      nextPage: computed(() => AppState.nextPage),
       toggleAscending() {
         ascending.value = !ascending.value
       },
       async filterByChallengeRating(rating) {
         await monstersService.getMonstersByChallengeRating(rating)
       },
-      previousPage: computed(() => AppState.previousPage),
-      nextPage: computed(() => AppState.nextPage),
+      async getHighChallengeRatingMonsters() {
+        await monstersService.getHighChallengeRatingMonsters()
+      },
       async getMonsters() {
         try {
           await monstersService.getMonsters()

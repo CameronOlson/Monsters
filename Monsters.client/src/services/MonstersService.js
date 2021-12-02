@@ -6,10 +6,6 @@ const monstersApi = axios.create({
   baseURL: 'https://api.open5e.com/monsters/'
 })
 
-const searchApi = axios.create({
-  baseURL: 'https://api.open5e.com/monsters'
-})
-
 class MonstersService {
 
   async getMonsters() {
@@ -22,7 +18,7 @@ class MonstersService {
   }
 
   async getMonstersBySearch(query) {
-    const res = await searchApi.get('?type=' + query)
+    const res = await monstersApi.get('?type=' + query)
     logger.log('this is the res query', res)
     AppState.monsters = res.data.results
   }
@@ -33,7 +29,7 @@ class MonstersService {
       words[i] = words[i][0].toUpperCase() + words[i].substr(1).toLowerCase();
     }
     
-    const res = await searchApi.get('?name=' + words.join('+'))
+    const res = await monstersApi.get('?name=' + words.join('+'))
     logger.log(res.request.responseURL)
     AppState.monsters = res.data.results
   }
@@ -50,8 +46,17 @@ class MonstersService {
   }
   async getMonstersByChallengeRating(rating){
     const res = await monstersApi.get('?challenge_rating=' + rating)
-    logger.log('challenge rating res', res.data)
+    logger.log('challenge rating res', res.data.results)
     AppState.monsters = res.data.results
+  }
+
+  async getHighChallengeRatingMonsters(){
+    AppState.monsters = []
+    for (let rating = 21; rating <= 30; rating++){
+      const res = await monstersApi.get('?challenge_rating=' + rating)
+      logger.log('high CR monsters res', res.data.results)
+      AppState.monsters.push(...res.data.results)
+    }
   }
 }
 export const monstersService = new MonstersService()
