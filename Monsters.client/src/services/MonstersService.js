@@ -51,6 +51,7 @@ class MonstersService {
     const res = await monstersApi.get('?challenge_rating=' + rating)
     logger.log('challenge rating res', res.data.results)
     AppState.monsters = res.data.results
+    AppState.nextPage = res.data.next
   }
 
   async getHighChallengeRatingMonsters(){
