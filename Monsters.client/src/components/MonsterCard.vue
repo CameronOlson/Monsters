@@ -41,6 +41,14 @@
                   {{ monster.damage_immunities }}
                 </div>
                 <div class="col-12">
+                  <strong>Damage Resistance</strong> <br />
+                  {{ monster.damage_resistances }}
+                </div>
+                <div class="col-12">
+                  <strong>Damage Vulnerabilities</strong> <br />
+                  {{ monster.damage_vulnerabilities }}
+                </div>
+                <div class="col-12">
                   <strong>Conditional Immunities</strong> <br />
                   {{ monster.condition_immunities }}
                 </div>
@@ -53,16 +61,45 @@
                   {{ monster.languages }}
                 </div>
                 <div class="col-12">
-                  <strong>Actions</strong> <br />
-                  <div v-for="actions in monster.actions" :key="actions.name">
-                    <b>{{ actions.name }}</b> - {{ actions.desc }}
+                  <strong>Spells</strong> <br />
+                  <div
+                    v-for="spell_list in monster.spell_list"
+                    :key="spell_list.name"
+                  >
+                    <b>{{ spell_list.name }}</b> -
+                    {{ spell_list.desc }}
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-6">Trascore</div>
+        <div class="col-6">
+          <div class="row">
+            <div class="col-12">
+              <strong>Special Abilities</strong> <br />
+              <div
+                v-for="special_abilities in monster.special_abilities"
+                :key="special_abilities.name"
+              >
+                <b>{{ special_abilities.name }}</b> -
+                {{ special_abilities.desc }}
+              </div>
+              <strong>Actions</strong> <br />
+              <div v-for="actions in monster.actions" :key="actions.name">
+                <b>{{ actions.name }}</b> - {{ actions.desc }}
+              </div>
+              <strong>Legendary Actions</strong> <br />
+              <div
+                v-for="legendary_actions in monster.legendary_actions"
+                :key="legendary_actions.name"
+              >
+                <b>{{ legendary_actions.name }}</b> -
+                {{ legendary_actions.desc }}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </template>
   </Modal>
