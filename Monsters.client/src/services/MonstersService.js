@@ -61,5 +61,12 @@ class MonstersService {
       AppState.monsters.push(...res.data.results)
     }
   }
+  async filterByType(type){
+    AppState.monsters = []
+    const res = await monstersApi.get('?type=' + type)
+    logger.log('filter by type res', res.data)
+    AppState.monsters = res.data.results
+    AppState.nextPage = res.data.next
+  }
 }
 export const monstersService = new MonstersService()

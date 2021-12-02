@@ -27,6 +27,94 @@
       <button class="m-1 btn btn-primary" @click="toggleAscending()">
         Toggle by AC
       </button>
+      <button
+        class="btn btn-primary m-1 dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Filter by Type
+      </button>
+      <ul class="dropdown-menu">
+        <li
+          @click.prevent="filterByType('beast')"
+          class="dropdown-item selectable"
+        >
+          Beast
+        </li>
+        <li
+          @click.prevent="filterByType('construct')"
+          class="dropdown-item selectable"
+        >
+          Celestial
+        </li>
+        <li
+          @click.prevent="filterByType('celestial')"
+          class="dropdown-item selectable"
+        >
+          Construct
+        </li>
+        <li
+          @click.prevent="filterByType('dragon')"
+          class="dropdown-item selectable"
+        >
+          Dragon
+        </li>
+        <li
+          @click.prevent="filterByType('elemental')"
+          class="dropdown-item selectable"
+        >
+          Elemental
+        </li>
+        <li
+          @click.prevent="filterByType('fey')"
+          class="dropdown-item selectable"
+        >
+          Fey
+        </li>
+        <li
+          @click.prevent="filterByType('fiend')"
+          class="dropdown-item selectable"
+        >
+          Fiend
+        </li>
+        <li
+          @click.prevent="filterByType('giant')"
+          class="dropdown-item selectable"
+        >
+          Giant
+        </li>
+        <li
+          @click.prevent="filterByType('humanoid')"
+          class="dropdown-item selectable"
+        >
+          Humanoid
+        </li>
+        <li
+          @click.prevent="filterByType('monstrosity')"
+          class="dropdown-item selectable"
+        >
+          Monstrosity
+        </li>
+        <li
+          @click.prevent="filterByType('ooze')"
+          class="dropdown-item selectable"
+        >
+          Ooze
+        </li>
+        <li
+          @click.prevent="filterByType('plant')"
+          class="dropdown-item selectable"
+        >
+          Plant
+        </li>
+        <li
+          @click.prevent="filterByType('undead')"
+          class="dropdown-item selectable"
+        >
+          Undead
+        </li>
+      </ul>
       <div class="btn-group">
         <button
           class="btn btn-primary dropdown-toggle"
@@ -236,6 +324,9 @@ export default {
       },
       async getHighChallengeRatingMonsters() {
         await monstersService.getHighChallengeRatingMonsters()
+      },
+      async filterByType(type) {
+        await monstersService.filterByType(type)
       },
       async getMonsters() {
         try {
