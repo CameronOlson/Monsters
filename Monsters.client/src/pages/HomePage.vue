@@ -121,7 +121,7 @@
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        Filtetr by Challenge Rating
+        Filter by Challenge Rating
       </button>
       <ul class="dropdown-menu">
         <li
