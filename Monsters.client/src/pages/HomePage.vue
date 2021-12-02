@@ -115,162 +115,160 @@
           Undead
         </li>
       </ul>
-      <div class="btn-group">
-        <button
-          class="btn btn-primary dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
+      <button
+        class="btn btn-primary m-1 dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Filter Challenge Rating
+      </button>
+      <ul class="dropdown-menu">
+        <li
+          @click.prevent="filterByChallengeRating('1%2F8')"
+          class="dropdown-item selectable"
         >
-          Filter Challenge Rating
-        </button>
-        <ul class="dropdown-menu">
-          <li
-            @click.prevent="filterByChallengeRating('1%2F8')"
-            class="dropdown-item selectable"
-          >
-            1/8
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('1%2F4')"
-            class="dropdown-item selectable"
-          >
-            1/4
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('1%2F2')"
-            class="dropdown-item selectable"
-          >
-            1/2
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('1')"
-            class="dropdown-item selectable"
-          >
-            1
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('2')"
-            class="dropdown-item selectable"
-          >
-            2
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('3')"
-            class="dropdown-item selectable"
-          >
-            3
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('4')"
-            class="dropdown-item selectable"
-          >
-            4
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('5')"
-            class="dropdown-item selectable"
-          >
-            5
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('6')"
-            class="dropdown-item selectable"
-          >
-            6
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('7')"
-            class="dropdown-item selectable"
-          >
-            7
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('8')"
-            class="dropdown-item selectable"
-          >
-            8
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('9')"
-            class="dropdown-item selectable"
-          >
-            9
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('10')"
-            class="dropdown-item selectable"
-          >
-            10
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('11')"
-            class="dropdown-item selectable"
-          >
-            11
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('12')"
-            class="dropdown-item selectable"
-          >
-            12
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('13')"
-            class="dropdown-item selectable"
-          >
-            13
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('14')"
-            class="dropdown-item selectable"
-          >
-            14
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('15')"
-            class="dropdown-item selectable"
-          >
-            15
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('16')"
-            class="dropdown-item selectable"
-          >
-            16
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('17')"
-            class="dropdown-item selectable"
-          >
-            17
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('18')"
-            class="dropdown-item selectable"
-          >
-            18
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('19')"
-            class="dropdown-item selectable"
-          >
-            19
-          </li>
-          <li
-            @click.prevent="filterByChallengeRating('20')"
-            class="dropdown-item selectable"
-          >
-            20
-          </li>
-          <li
-            @click.prevent="getHighChallengeRatingMonsters()"
-            class="dropdown-item selectable"
-          >
-            21+
-          </li>
-        </ul>
-      </div>
+          1/8
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('1%2F4')"
+          class="dropdown-item selectable"
+        >
+          1/4
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('1%2F2')"
+          class="dropdown-item selectable"
+        >
+          1/2
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('1')"
+          class="dropdown-item selectable"
+        >
+          1
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('2')"
+          class="dropdown-item selectable"
+        >
+          2
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('3')"
+          class="dropdown-item selectable"
+        >
+          3
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('4')"
+          class="dropdown-item selectable"
+        >
+          4
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('5')"
+          class="dropdown-item selectable"
+        >
+          5
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('6')"
+          class="dropdown-item selectable"
+        >
+          6
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('7')"
+          class="dropdown-item selectable"
+        >
+          7
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('8')"
+          class="dropdown-item selectable"
+        >
+          8
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('9')"
+          class="dropdown-item selectable"
+        >
+          9
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('10')"
+          class="dropdown-item selectable"
+        >
+          10
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('11')"
+          class="dropdown-item selectable"
+        >
+          11
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('12')"
+          class="dropdown-item selectable"
+        >
+          12
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('13')"
+          class="dropdown-item selectable"
+        >
+          13
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('14')"
+          class="dropdown-item selectable"
+        >
+          14
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('15')"
+          class="dropdown-item selectable"
+        >
+          15
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('16')"
+          class="dropdown-item selectable"
+        >
+          16
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('17')"
+          class="dropdown-item selectable"
+        >
+          17
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('18')"
+          class="dropdown-item selectable"
+        >
+          18
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('19')"
+          class="dropdown-item selectable"
+        >
+          19
+        </li>
+        <li
+          @click.prevent="filterByChallengeRating('20')"
+          class="dropdown-item selectable"
+        >
+          20
+        </li>
+        <li
+          @click.prevent="getHighChallengeRatingMonsters()"
+          class="dropdown-item selectable"
+        >
+          21+
+        </li>
+      </ul>
 
       <button
         v-if="nextPage"
