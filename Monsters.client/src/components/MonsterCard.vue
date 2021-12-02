@@ -37,20 +37,32 @@
                 <div class="col-2">WIS {{ monster.wisdom }}</div>
                 <div class="col-2">CHA {{ monster.charisma }}</div>
                 <div class="col-12">
-                  <strong> Damage Immunities </strong> <br />
-                  {{ monster.damage_immunities }}
+                  <div v-if="monster.damage_immunities == ''"></div>
+                  <div v-else>
+                    <strong> Damage Immunities </strong> <br />
+                    {{ monster.damage_immunities }}
+                  </div>
                 </div>
                 <div class="col-12">
-                  <strong>Damage Resistance</strong> <br />
-                  {{ monster.damage_resistances }}
+                  <div v-if="monster.damage_resistances == ''"></div>
+                  <div v-else>
+                    <strong>Damage Resistance</strong> <br />
+                    {{ monster.damage_resistances }}
+                  </div>
                 </div>
                 <div class="col-12">
-                  <strong>Damage Vulnerabilities</strong> <br />
-                  {{ monster.damage_vulnerabilities }}
+                  <div v-if="monster.damage_vulnerabilities == ''"></div>
+                  <div v-else>
+                    <strong>Damage Vulnerabilities</strong> <br />
+                    {{ monster.damage_vulnerabilities }}
+                  </div>
                 </div>
                 <div class="col-12">
-                  <strong>Conditional Immunities</strong> <br />
-                  {{ monster.condition_immunities }}
+                  <div v-if="monster.condition_immunities == ''"></div>
+                  <div v-else>
+                    <strong>Conditional Immunities</strong> <br />
+                    {{ monster.condition_immunities }}
+                  </div>
                 </div>
                 <div class="col-12">
                   <strong>Senses</strong> <br />
