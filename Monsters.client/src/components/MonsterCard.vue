@@ -8,8 +8,8 @@
       <div class="col-3">
         {{ monster.name }}
       </div>
-      <div class="col-3">CR:{{ monster.challenge_rating }}</div>
-      <div class="col-3">AC:{{ monster.armor_class }}</div>
+      <div class="col-3">CR: {{ monster.challenge_rating }}</div>
+      <div class="col-3">AC: {{ monster.armor_class }}</div>
       <div class="col-3">HP: {{ monster.hit_points }}</div>
     </div>
   </button>
