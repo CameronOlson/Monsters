@@ -52,17 +52,20 @@
                   <strong>Languages</strong> <br />
                   {{ monster.languages }}
                 </div>
-                <div class="col-12">
-                  <strong>Actions</strong> <br />
-                  <div v-for="actions in monster.actions" :key="actions.name">
-                    <b>{{ actions.name }}</b> - {{ actions.desc }}
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-6">Trascore</div>
+        <div class="col-6">
+          <div class="row">
+            <div class="col-12">
+              <strong>Actions</strong> <br />
+              <div v-for="actions in monster.actions" :key="actions.name">
+                <b>{{ actions.name }}</b> - {{ actions.desc }}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </template>
   </Modal>
