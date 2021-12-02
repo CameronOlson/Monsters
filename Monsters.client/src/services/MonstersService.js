@@ -18,11 +18,13 @@ class MonstersService {
   }
 
   async getMonstersBySearch(query) {
+    AppState.monsters = []
     const res = await monstersApi.get('?type=' + query)
     logger.log('this is the res query', res)
     AppState.monsters = res.data.results
   }
   async getMonstersByName(query) {
+    AppState.monsters = []
     const words = query.split(" ");
     
     for (let i = 0; i < words.length; i++) {
@@ -45,6 +47,7 @@ class MonstersService {
     AppState.previousPage = res.data.previous
   }
   async getMonstersByChallengeRating(rating){
+    AppState.monsters = []
     const res = await monstersApi.get('?challenge_rating=' + rating)
     logger.log('challenge rating res', res.data.results)
     AppState.monsters = res.data.results
