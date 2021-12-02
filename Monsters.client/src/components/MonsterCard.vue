@@ -54,7 +54,9 @@
                 </div>
                 <div class="col-12">
                   <strong>Actions</strong> <br />
-                  {{ monster.actions }}
+                  <div v-for="actions in monster.actions" :key="actions.name">
+                    <b>{{ actions.name }}</b> - {{ actions.desc }}
+                  </div>
                 </div>
               </div>
             </div>
