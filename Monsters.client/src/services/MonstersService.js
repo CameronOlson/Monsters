@@ -5,6 +5,9 @@ import { logger } from "../utils/Logger"
 const monstersApi = axios.create({
   baseURL: 'https://api.open5e.com/monsters/'
 })
+const spellsApi = axios.create({
+  baseURL: ''
+}) 
 
 class MonstersService {
 
@@ -68,6 +71,15 @@ class MonstersService {
     logger.log('filter by type res', res.data)
     AppState.monsters = res.data.results
     AppState.nextPage = res.data.next
+  }
+
+  async getMonsterSpells(spells){
+    debugger
+    AppState.spells = []
+    const res = await spellsApi.get(spells)
+    logger.log(res)
+    AppState.spells = res.data
+  
   }
 }
 export const monstersService = new MonstersService()

@@ -73,14 +73,25 @@
                   {{ monster.languages }}
                 </div>
                 <div class="col-12">
-                  <strong>Spells</strong> <br />
-                  <div
-                    v-for="spell_list in monster.spell_list"
-                    :key="spell_list.name"
+                  <button
+                    class="btn btn-primary"
+                    @click.prevent="
+                      monster.spell_list.forEach((element) =>
+                        getSpells(element)
+                      )
+                    "
                   >
-                    <b>{{ spell_list.name }}</b> -
-                    {{ spell_list.desc }}
-                  </div>
+                    Spells
+                  </button>
+                  <br />
+                  <!-- <div
+                    v-for="spell_list in monster.spell_list"
+                    :key="spell_list"
+                  >
+                    <div>
+                      <b>{{ spell_list }}</b> -
+                    </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -119,6 +130,8 @@
 
 
 <script>
+import { monstersService } from "../services/MonstersService"
+import Pop from "../utils/Pop"
 export default {
   props: {
     monster: {
@@ -127,7 +140,16 @@ export default {
     }
   },
   setup() {
-    return {}
+    return {
+      async getSpells(spells) {
+        try {
+
+          await monstersService.getMonsterSpells(spells)
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      }
+    }
   }
 }
 </script>
