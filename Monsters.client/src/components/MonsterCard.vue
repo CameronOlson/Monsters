@@ -1,5 +1,6 @@
 <template>
   <button
+    @click.prevent="getSpells(monster.spell_list)"
     class="card"
     data-bs-toggle="modal"
     :data-bs-target="'#monster' + monster.slug"
@@ -84,14 +85,11 @@
                     Spells
                   </button>
                   <br />
-                  <!-- <div
-                    v-for="spell_list in monster.spell_list"
-                    :key="spell_list"
-                  >
+                  <div>
                     <div>
-                      <b>{{ spell_list }}</b> -
+                      <b>{{ spells }}</b>
                     </div>
-                  </div> -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -130,8 +128,11 @@
 
 
 <script>
+import { computed, onMounted } from "@vue/runtime-core"
 import { monstersService } from "../services/MonstersService"
 import Pop from "../utils/Pop"
+import { logger } from "../utils/Logger"
+import { AppState } from "../AppState"
 export default {
   props: {
     monster: {
@@ -140,15 +141,31 @@ export default {
     }
   },
   setup() {
+    AppState.spells = []
+
+
+
+    // onMounted(async () => {
+    //   props.monster.spell_list.forEach((element) =>
+    //     getSpells(element)
+    //   )
+    //   try {
+    //     await monstersService.getMonsterSpells(spells)
+    //   } catch (error) {
+    //     Pop.toast(error.message, 'error')
+    //     logger.log(error)
+    //   }
+    // })
     return {
       async getSpells(spells) {
         try {
-
           await monstersService.getMonsterSpells(spells)
+
         } catch (error) {
           Pop.toast(error, 'error')
         }
-      }
+      },
+      spells: computed(() => AppState.spells)
     }
   }
 }

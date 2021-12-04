@@ -75,10 +75,15 @@ class MonstersService {
 
   async getMonsterSpells(spells){
     debugger
-    AppState.spells = []
-    const res = await spellsApi.get(spells)
-    logger.log(res)
-    AppState.spells = res.data
+  
+  AppState.spells = []
+   for(let i = 0; i< spells.length; i++){
+     let word = spells[i]
+     const res = await spellsApi.get(word)
+     logger.log(res)
+     AppState.spells.push(res.data)
+    }
+  
   
   }
 }
