@@ -74,7 +74,7 @@ class MonstersService {
   }
 
   async getMonsterSpells(spells){
-    debugger
+  
   
   AppState.spells = []
    for(let i = 0; i< spells.length; i++){

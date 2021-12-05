@@ -74,20 +74,27 @@
                   {{ monster.languages }}
                 </div>
                 <div class="col-12">
-                  <button
-                    class="btn btn-primary"
-                    @click.prevent="
-                      monster.spell_list.forEach((element) =>
-                        getSpells(element)
-                      )
-                    "
-                  >
-                    Spells
-                  </button>
+                  <div>
+                    <strong> Spells </strong>
+                  </div>
                   <br />
                   <div>
-                    <div>
-                      <b>{{ spells }}</b>
+                    <div v-for="spells in spells" :key="spells.name">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="card-header">
+                            <b>{{ spells.name }}</b>
+                          </div>
+                          <div>Components: {{ spells.components }}</div>
+                          <div>Concentration: {{ spells.concentration }}</div>
+                          <div>Casting Time: {{ spells.casting_time }}</div>
+                          <div>Duration: {{ spells.duration }}</div>
+                          <div>Range: {{ spells.range }}</div>
+                          <div>
+                            {{ spells.desc }}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
