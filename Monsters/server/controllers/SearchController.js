@@ -1,4 +1,4 @@
-import { monstersService } from '../services/MonstersService'
+import { userMonstersService } from '../services/UserMonstersService'
 import BaseController from '../utils/BaseController'
 export class SearchController extends BaseController {
   constructor() {
@@ -9,7 +9,7 @@ export class SearchController extends BaseController {
 
   async getMonstersByTyp(req, res, next) {
     try {
-      const monsters = await monstersService.getMonstersBySearch(req.query)
+      const monsters = await userMonstersService.getMonstersBySearch(req.query)
       res.send(monsters)
     } catch (error) {
       next(error)
@@ -20,7 +20,7 @@ export class SearchController extends BaseController {
     try {
       const regex = new RegExp(req.query.search, 'i')
       console.log(regex)
-      const projects = await monstersService.getMonstersBySearch(regex)
+      const projects = await userMonstersService.getMonstersBySearch(regex)
 
       res.send(projects)
     } catch (error) {

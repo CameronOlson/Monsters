@@ -1,8 +1,9 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
-export const MonsterSchema = new Schema(
+export const UserMonsterSchema = new Schema(
   {
+    monsterId: { type: String, required: true },
     name: { type: String, required: true },
     size: { type: String, required: true },
     type: { type: String, required: true },
