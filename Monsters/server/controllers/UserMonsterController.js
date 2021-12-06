@@ -6,7 +6,7 @@ export class UserMonsterController extends BaseController {
     this.router
       .get('', this.getMonsters)
       .get('/:monsterId', this.getMonsterById)
-      .post('', this.createMonster)
+      // .post('', this.createMonster)
   }
 
   async getMonsters(req, res, next) {
@@ -27,11 +27,11 @@ export class UserMonsterController extends BaseController {
     }
   }
 
-  async createMonster(req, res, next) {
-    try {
-      req.body.creatorId
-    } catch (error) {
-      next(error)
-    }
-  }
+  // async createMonster(req, res, next) {
+  //   try {
+  //     req.body.creatorId
+  //   } catch (error) {
+  //     next(error)
+  //   }
+  // }
 }
