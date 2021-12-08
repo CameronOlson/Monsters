@@ -19,7 +19,7 @@ export class SearchController extends BaseController {
   async getMonstersByType(req, res, next) {
     try {
       const regex = new RegExp(req.query.search, 'i')
-      console.log(regex)
+
       const projects = await userMonstersService.getMonstersBySearch(regex)
 
       res.send(projects)
