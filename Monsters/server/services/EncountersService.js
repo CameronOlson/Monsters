@@ -3,6 +3,14 @@ import { BadRequest, Forbidden } from '../utils/Errors'
 import { userMonstersService } from './UserMonstersService'
 
 class EncountersService {
+  async getEncounters(query = {}) {
+    const encounters = await dbContext.Encounters.find(query)
+    if (!encounters) {
+      throw new BadRequest('no encounters')
+    }
+    return encounters
+  }
+
   async createEncounterMonster(body) {
     const foundEncounterMonster = await dbContext.EncounterMonsters.findOne({ monsterId: body.monsterId, encounterId: body.encounterId })
     if (!foundEncounterMonster) {

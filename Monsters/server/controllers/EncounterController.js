@@ -3,16 +3,26 @@ import BaseController from '../utils/BaseController'
 
 export class EncounterController extends BaseController {
   constructor() {
-    super('api/profiles/:id/encounters')
+    super('api')
     this.router
-      .get('', this.getEncounters)
-      .get('/:encounterId', this.getEncounterById)
-      .put('/:encounterId', this.editEncounter)
-      .post('', this.createEncounter)
-      .delete('/:encounterId', this.removeEncounter)
+      .get('/encounters', this.getEncounters)
+      .get('/profiles/:profileId/encounters/', this.getEncountersByProfile)
+      .get('/profiles/:profileId/encounters/:encounterId', this.getEncounterById)
+      .put('/profiles/:profileId/encounters/:encounterId', this.editEncounter)
+      .post('/profiles/:profileId/encounters', this.createEncounter)
+      .delete('/profiles/:profileId/encounters/:encounterId', this.removeEncounter)
   }
 
   async getEncounters(req, res, next) {
+    try {
+      const encounters = await encountersService.getEncounters(req.query)
+      res.send(encounters)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getEncountersByProfile(req, res, next) {
     try {
       const encounters = await encountersService.getEncountersByProfileId(req.params.id)
       res.send(encounters)
