@@ -10,11 +10,11 @@ EncounterMonsterSchema.virtual('monster', {
   localField: 'monsterId',
   foreignField: '_id',
   justOne: true,
-  ref: 'UserMonsters'
+  ref: 'UserMonster'
 })
 EncounterMonsterSchema.virtual('encounter', {
   localField: 'encounterId',
   foreignField: '_id',
   justOne: true,
-  ref: 'Encounters'
+  ref: 'Encounter'
 })

@@ -3,11 +3,11 @@ import BaseController from '../utils/BaseController'
 
 export class EncounterMonsterController extends BaseController {
   constructor() {
-    super('api/profiles/:id/encounters/:encounterId')
+    super('api')
     this.router
-      .get('/monsters', this.getMonstersByEncounterId)
-      .get('/monsters/:monsterId', this.getMonsterById)
-      .post('monsters', this.createEncounterMonster)
+      .get('/profiles/:id/encounters/:encounterId/monsters', this.getMonstersByEncounterId)
+      .get('/profiles/:id/encounters/:encounterId/monsters/:monsterId', this.getMonsterById)
+      .post('/encounterMonsters', this.createEncounterMonster)
   }
 
   async getMonstersByEncounterId(req, res, next) {
@@ -30,7 +30,7 @@ export class EncounterMonsterController extends BaseController {
 
   async createEncounterMonster(req, res, next) {
     try {
-      req.body.encounterId = req.params.encounterId
+      // req.body.encounterId = req.params.encounterId
       const encounterMonster = await encountersService.createEncounterMonster(req.body)
       res.send(encounterMonster)
     } catch (error) {

@@ -51,7 +51,7 @@ export class EncounterController extends BaseController {
 
   async createEncounter(req, res, next) {
     try {
-      req.body.creatorId = req.userInfo.id
+      req.body.creatorId = req.params.profileId
       const encounter = await encountersService.createEncounter(req.body)
       res.send(encounter)
     } catch (error) {

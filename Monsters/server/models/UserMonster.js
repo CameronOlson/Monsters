@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 export const UserMonsterSchema = new Schema(
   {
     creatorId: { type: Schema.Types.ObjectId, ref: 'Account', required: true },
-    monsterId: { type: String, required: true },
+    monsterId: { type: String, required: false },
     name: { type: String, required: true },
     size: { type: String, required: true },
     type: { type: String, required: true },

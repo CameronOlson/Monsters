@@ -33,7 +33,7 @@ export class UserMonsterController extends BaseController {
 
   async createMonster(req, res, next) {
     try {
-      // req.body.creatorId = userInfo.id
+      req.body.creatorId = req.userInfo.id
       const monster = await userMonstersService.createMonster(req.body)
       res.send(monster)
     } catch (error) {
@@ -43,7 +43,7 @@ export class UserMonsterController extends BaseController {
 
   async editMonster(req, res, next) {
     try {
-      const monster = await userMonstersService.editMonster(req.params.bugId, req.userInfo.id, req.body)
+      const monster = await userMonstersService.editMonster(req.params.monsterId, req.userInfo.id, req.body)
       res.send(monster
       )
     } catch (error) {
