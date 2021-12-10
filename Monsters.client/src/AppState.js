@@ -7,5 +7,6 @@ export const AppState = reactive({
   monsters: [],
   nextPage: null,
   previousPage: null,
-  spells: []
+  spells: [],
+  userMonsters: []
 })
