@@ -84,11 +84,16 @@ class MonstersService {
   }
 
   async rollDamageDice(dice){
+    let rolls = []
+    let total = 0
     let indexOfD = dice.indexOf('d')
     let numberOfDice = parseInt(dice.slice(0, indexOfD))
     let sidesOfDice = parseInt(dice.slice(indexOfD += 1))
-    const total = numberOfDice * (Math.floor(Math.random() * sidesOfDice) + 1)
-    logger.log('Total =', total)
+    for(let i = 0; i < numberOfDice; i++){
+      rolls.push(Math.floor(Math.random() * sidesOfDice) + 1)
+      total += rolls[i]
+    }
+    logger.log('Rolls =', rolls, 'Total =', total)
   }
 }
 export const monstersService = new MonstersService()

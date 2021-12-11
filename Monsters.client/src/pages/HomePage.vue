@@ -12,7 +12,7 @@
             Homebrew
           </button>
         </router-link>
-        <button class="btn btn-primary" @click.prevent="rollDamageDice('2d6')">
+        <button class="btn btn-primary" @click.prevent="rollDamageDice('3d6')">
           Roll Dice
         </button>
       </div>
