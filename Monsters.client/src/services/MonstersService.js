@@ -74,8 +74,6 @@ class MonstersService {
   }
 
   async getMonsterSpells(spells){
-  
-  
   AppState.spells = []
    for(let i = 0; i< spells.length; i++){
      let word = spells[i]
@@ -83,8 +81,14 @@ class MonstersService {
      logger.log(res)
      AppState.spells.push(res.data)
     }
-  
-  
+  }
+
+  async rollDamageDice(dice){
+    let indexOfD = dice.indexOf('d')
+    let numberOfDice = parseInt(dice.slice(0, indexOfD))
+    let sidesOfDice = parseInt(dice.slice(indexOfD += 1))
+    const total = numberOfDice * (Math.floor(Math.random() * sidesOfDice) + 1)
+    logger.log('Total =', total)
   }
 }
 export const monstersService = new MonstersService()

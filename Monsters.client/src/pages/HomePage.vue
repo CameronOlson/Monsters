@@ -12,6 +12,9 @@
             Homebrew
           </button>
         </router-link>
+        <button class="btn btn-primary" @click.prevent="rollDamageDice('2d6')">
+          Roll Dice
+        </button>
       </div>
     </div>
     <router-view />
@@ -20,9 +23,14 @@
 
 
 <script>
+import { monstersService } from '../services/MonstersService'
 export default {
   setup() {
-    return {}
+    return {
+      async rollDamageDice(dice) {
+        await monstersService.rollDamageDice(dice)
+      }
+    }
   }
 }
 </script>
