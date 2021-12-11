@@ -88,7 +88,7 @@ class MonstersService {
     let total = 0
     let indexOfD = dice.indexOf('d')
     let numberOfDice = parseInt(dice.slice(0, indexOfD))
-    let sidesOfDice = parseInt(dice.slice(indexOfD += 1))
+    let sidesOfDice = parseInt(dice.slice(indexOfD + 1))
     for(let i = 0; i < numberOfDice; i++){
       rolls.push(Math.floor(Math.random() * sidesOfDice) + 1)
       total += rolls[i]
