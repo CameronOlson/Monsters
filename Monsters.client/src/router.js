@@ -32,6 +32,11 @@ const routes = [
     component: loadPage('AboutPage')
   },
   {
+    path: '/battlePage',
+    name: 'BattlePage',
+    component: loadPage('BattlePage')
+  },
+  {
     path: '/account',
     name: 'Account',
     component: loadPage('AccountPage'),
