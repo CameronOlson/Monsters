@@ -2,6 +2,9 @@
   <div class="component">
     <div class="row">
       <div class="col">HELLO FROM TOP</div>
+      <div class="btn btn-success">Player Tokens</div>
+      <div class="btn btn-danger">Bad Guy Tokens</div>
+      <div class="btn btn-secondary">Upload Map</div>
     </div>
     <div class="wrapper">
       <div class="grid-box"></div>
