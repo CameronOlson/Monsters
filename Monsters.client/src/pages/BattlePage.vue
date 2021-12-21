@@ -14,8 +14,8 @@
       <MapCard v-for="m in maps" :key="m.id" :map="m" />
     </div>
     <div class="row">
-      <div class="card col-11 m-auto center fill">
-        <div class="wrapper fill-img">
+      <div class="col-11 m-auto center fill">
+        <div class="wrapper box-view fill-img">
           <div class="grid-box">1</div>
           <div class="grid-box">2</div>
           <div class="grid-box">3</div>
@@ -1549,7 +1549,13 @@ export default {
   margin: 0;
   border: 1px solid;
 }
-
+.box-view {
+  // overflow-y: scroll;
+  // overflow-x: scroll;
+  background-image: url("https://m.media-amazon.com/images/I/91cM19R8NeL._AC_SL1500_.jpg");
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
 .center {
   display: flex;
   justify-content: space-around;
@@ -1561,8 +1567,8 @@ export default {
   overflow: scroll;
 }
 .fill-img {
-  background-image: url("https://m.media-amazon.com/images/I/91cM19R8NeL._AC_SL1500_.jpg");
-  background-repeat: no-repeat;
-  // object-fit: cover;
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 </style>
