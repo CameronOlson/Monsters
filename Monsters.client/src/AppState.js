@@ -10,6 +10,8 @@ export const AppState = reactive({
   spells: [],
   userMonsters: [],
   tokens: [],
-  encounters: []
+  encounters: [],
+  maps: [],
+  map: {}
 
 })

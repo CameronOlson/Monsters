@@ -6,6 +6,7 @@ export class MapController extends BaseController {
     super('api/maps')
     this.router
       .get('', this.getMaps)
+      .get('/:mapId', this.getById)
       .post('', this.createMap)
       .delete('/:mapId', this.removeMap)
       // .delete('', this.removeAll)
@@ -22,6 +23,7 @@ export class MapController extends BaseController {
 
   async createMap(req, res, next) {
     try {
+      // req.body.creatorId = req.userInfo.id
       const map = await mapsService.createMap(req.body)
       res.send(map)
     } catch (error) {
@@ -32,6 +34,15 @@ export class MapController extends BaseController {
   async removeMap(req, res, next) {
     try {
       const map = await mapsService.removeMap(req.params.mapId)
+      res.send(map)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getById(req, res, next) {
+    try {
+      const map = await mapsService.getById(req.params.mapId)
       res.send(map)
     } catch (error) {
       next(error)

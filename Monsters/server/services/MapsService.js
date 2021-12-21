@@ -1,6 +1,10 @@
 import { dbContext } from '../db/DbContext'
 
 class MapsService {
+  async getById(mapId) {
+    const map = await dbContext.Maps.findById(mapId)
+    return map
+  }
   // async removeAll() {
   //   const tokens = await dbContext.Tokens.
   // }
