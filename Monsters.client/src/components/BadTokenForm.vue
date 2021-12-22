@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="postGoodToken()">
+  <form @submit.prevent="postBadToken()">
     <div class="mb-3">
       <label for="tokenName" class="form-label">Token Name</label>
       <input
@@ -21,8 +21,6 @@ import { watchEffect } from "@vue/runtime-core"
 import { AppState } from "../AppState"
 import Pop from "../utils/Pop"
 import { logger } from "../utils/Logger"
-import { Modal } from "bootstrap"
-import { tokensService } from "../services/TokensService"
 export default {
   setup() {
     const editable = ref({})
@@ -31,11 +29,9 @@ export default {
     })
     return {
       editable,
-      async postGoodToken() {
+      async postBadToken() {
         try {
-          await tokensService.postGoodToken(editable.value)
-          const modal = Modal.getOrCreateInstance(document.getElementById("add-goodToken"))
-          modal.hide()
+
         } catch (error) {
           Pop.toast(error.message, 'error')
           logger.log(error)

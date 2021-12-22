@@ -2,8 +2,21 @@
   <div class="component">
     <div class="row">
       <div class="col">HELLO FROM TOP</div>
-      <div class="btn btn-success">Player Tokens</div>
-      <div class="btn btn-danger">Bad Guy Tokens</div>
+
+      <button
+        data-bs-toggle="modal"
+        data-bs-target="#add-goodToken"
+        class="btn btn-dark text-light"
+      >
+        Good Token
+      </button>
+      <button
+        data-bs-toggle="modal"
+        data-bs-target="#add-badToken"
+        class="btn btn-dark text-light"
+      >
+        Bad Token
+      </button>
       <button
         data-bs-toggle="modal"
         data-bs-target="#add-map"
@@ -1512,6 +1525,22 @@
       <MapForm />
     </template>
   </Modal>
+  <Modal id="add-goodToken">
+    <template #modal-title>
+      <h6>Good Token</h6>
+    </template>
+    <template #modal-body>
+      <GoodTokenForm />
+    </template>
+  </Modal>
+  <Modal id="add-badToken">
+    <template #modal-title>
+      <h6>Map</h6>
+    </template>
+    <template #modal-body>
+      <BadTokenForm />
+    </template>
+  </Modal>
 </template>
 
 
@@ -1521,11 +1550,14 @@ import { AppState } from "../AppState"
 import { watchEffect } from "@vue/runtime-core"
 import { mapsService } from "../services/MapsService"
 import Pop from "../utils/Pop"
+import { tokensService } from "../services/TokensService"
 export default {
   setup() {
     watchEffect(async () => {
       try {
         AppState.maps = []
+        AppState.tokens = []
+        await tokensService.getTokens()
         await mapsService.getMaps()
       } catch (error) {
         Pop.toast(error)
@@ -1533,7 +1565,9 @@ export default {
     })
     return {
       map: computed(() => AppState.map),
-      maps: computed(() => AppState.maps)
+      maps: computed(() => AppState.maps),
+      tokens: computed(() => AppState.tokens),
+      token: computed(() => AppState.token)
     }
   }
 }
