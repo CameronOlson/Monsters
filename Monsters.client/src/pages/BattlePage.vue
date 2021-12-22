@@ -14,7 +14,10 @@
       <MapCard v-for="m in maps" :key="m.id" :map="m" />
     </div>
     <div class="row">
-      <div class="col-11 m-auto center fill">
+      <div class="col-1">
+        <TokenCard v-for="t in tokens" :key="t.id" :token="t" />
+      </div>
+      <div class="col-10 center fill">
         <div class="wrapper box-view fill-img">
           <div class="grid-box">1</div>
           <div class="grid-box">2</div>
@@ -1496,6 +1499,7 @@
           <div class="grid-box"></div>
           <div class="grid-box"></div>
         </div>
+        <div class="col-1"></div>
       </div>
     </div>
   </div>
