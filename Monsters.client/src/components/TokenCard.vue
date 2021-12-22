@@ -1,10 +1,16 @@
 <template>
-  <div class="component">hello</div>
+  <div class="component"></div>
 </template>
 
 
 <script>
 export default {
+  props: {
+    token: {
+      type: Object,
+      required: true
+    }
+  },
   setup() {
     return {}
   }
