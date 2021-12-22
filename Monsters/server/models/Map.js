@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 export const MapSchema = new Schema({
-  creatorId: { type: Schema.Types.ObjectId, ref: 'Account', required: false },
+  creatorId: { type: Schema.Types.ObjectId, ref: 'Account', required: true },
   mapId: { type: String, required: false },
   name: { type: String, required: false },
   img: { type: String, required: true }

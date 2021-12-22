@@ -1,6 +1,10 @@
 import { dbContext } from '../db/DbContext'
 
 class TokensService {
+  async getById(tokenId) {
+    const token = await dbContext.Tokens.findById(tokenId)
+    return token
+  }
   // async removeAll() {
   //   const tokens = await dbContext.Tokens.
   // }

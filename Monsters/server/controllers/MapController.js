@@ -1,3 +1,4 @@
+import { Auth0Provider } from '@bcwdev/auth0provider'
 import { mapsService } from '../services/MapsService'
 import BaseController from '../utils/BaseController'
 
@@ -7,6 +8,7 @@ export class MapController extends BaseController {
     this.router
       .get('', this.getMaps)
       .get('/:mapId', this.getById)
+      .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createMap)
       .delete('/:mapId', this.removeMap)
       // .delete('', this.removeAll)
@@ -23,7 +25,7 @@ export class MapController extends BaseController {
 
   async createMap(req, res, next) {
     try {
-      // req.body.creatorId = req.userInfo.id
+      req.body.creatorId = req.userInfo.id
       const map = await mapsService.createMap(req.body)
       res.send(map)
     } catch (error) {

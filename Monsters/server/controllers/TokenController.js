@@ -1,3 +1,4 @@
+import { Auth0Provider } from '@bcwdev/auth0provider'
 import { tokensService } from '../services/TokensService'
 import BaseController from '../utils/BaseController'
 
@@ -6,6 +7,8 @@ export class TokenController extends BaseController {
     super('api/tokens')
     this.router
       .get('', this.getTokens)
+      .get('/:tokenId', this.getById)
+      .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createToken)
       .delete('/:tokenId', this.removeToken)
       // .delete('', this.removeAll)
@@ -22,6 +25,7 @@ export class TokenController extends BaseController {
 
   async createToken(req, res, next) {
     try {
+      req.body.creatorId = req.userInfo.id
       const token = await tokensService.createToken(req.body)
       res.send(token)
     } catch (error) {
@@ -37,6 +41,16 @@ export class TokenController extends BaseController {
       next(error)
     }
   }
+
+  async getById(req, res, next) {
+    try {
+      const token = await tokensService.getById(req.params.tokenId)
+      res.send(token)
+    } catch (error) {
+      next(error)
+    }
+  }
+
   // async removeAll(req, res, next) {
   //   try {
   //     const tokens = await tokensService.removeAll()
