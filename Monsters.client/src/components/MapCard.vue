@@ -1,11 +1,16 @@
 <template>
   <div class="component">
-    <p>{{ map.name }}</p>
+    <button @click-prevent="makeThisTheMap(map.data)">
+      {{ map.name }}
+    </button>
   </div>
 </template>
 
 
 <script>
+import { AppState } from "../AppState"
+import { mapsService } from "../services/MapsService"
+import Pop from "../utils/Pop"
 export default {
   props: {
     map: {
@@ -14,7 +19,19 @@ export default {
     }
   },
   setup() {
-    return {}
+    AppState.map = []
+
+
+    return {
+      async makeThisTheMap(mapData) {
+        debugger
+        try {
+          await mapsService.makeThisTheMap(mapData)
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      }
+    }
   }
 }
 </script>

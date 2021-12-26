@@ -1,12 +1,19 @@
 <template>
   <form @submit.prevent="postGoodToken()">
     <div class="mb-3">
-      <label for="tokenName" class="form-label">Token Name</label>
+      <label for="tokenName" class="form-label">Name</label>
       <input
         type="string"
         class="form-control"
         id="tokenName"
         v-model="editable.name"
+      />
+      <label for="tokenImg" class="form-label">Image</label>
+      <input
+        type="string"
+        class="form-control"
+        id="tokenImg"
+        v-model="editable.picture"
       />
     </div>
 

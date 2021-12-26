@@ -16,6 +16,10 @@ class MapsService {
     logger.log('this the all map res', res.data)
     AppState.maps = res.data
 }
+async makeThisTheMap(mapData){
+  logger.log('This is the chosen map', mapData)
+  AppState.map = mapData
+}
 
 }
 export const mapsService = new MapsService()

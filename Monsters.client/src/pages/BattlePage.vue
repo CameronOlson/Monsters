@@ -31,7 +31,8 @@
         <TokenCard v-for="t in tokens" :key="t.id" :token="t" />
       </div>
       <div class="col-10 center fill">
-        <div class="wrapper box-view fill-img">
+        <div class="card wrapper box-view" style="width: 100rem">
+          <img :src="map.img" class="card-img" alt="" />
           <div class="grid-box">1</div>
           <div class="grid-box">2</div>
           <div class="grid-box">3</div>
@@ -1590,9 +1591,8 @@ export default {
 .box-view {
   // overflow-y: scroll;
   // overflow-x: scroll;
-  background-image: url("https://m.media-amazon.com/images/I/91cM19R8NeL._AC_SL1500_.jpg");
   background-repeat: no-repeat;
-  object-fit: cover;
+  // object-fit: cover;
 }
 .center {
   display: flex;
