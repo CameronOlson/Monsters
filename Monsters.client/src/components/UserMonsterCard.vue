@@ -1,5 +1,7 @@
 <template>
-  <div class="component">{{ userMonster.name }}</div>
+  <div class="component">
+    {{ userMonster.name }}
+  </div>
 </template>
 
 

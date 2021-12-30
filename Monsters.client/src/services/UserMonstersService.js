@@ -9,7 +9,8 @@ class UserMonsterService {
   async getUserMonsters(){
     const res = await userMonstersApi.get('')
     logger.log('this is the userMonsters', res.data)
-    AppState.userMonsters = res.data.results
+    AppState.userMonsters = res.data
+    logger.log('this is appState', AppState.userMonsters)
   }
 }
 export const userMonstersService = new UserMonsterService()
