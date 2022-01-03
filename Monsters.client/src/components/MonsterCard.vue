@@ -1,19 +1,20 @@
 <template>
-  <button
+  <div
     @click.prevent="getSpells(monster.spell_list)"
-    class="card"
+    class="selectable bg-yellow m-1"
     data-bs-toggle="modal"
     :data-bs-target="'#monster' + monster.slug"
   >
-    <div class="col-12 card-body monster-card">
+    <div class="col-12 card-body monster-card change-text text-light">
       <div class="col-3">
         {{ monster.name }}
       </div>
       <div class="col-3">CR: {{ monster.challenge_rating }}</div>
+
       <div class="col-3">AC: {{ monster.armor_class }}</div>
       <div class="col-3">HP: {{ monster.hit_points }}</div>
     </div>
-  </button>
+  </div>
   <Modal :id="'monster' + monster.slug">
     <template #modal-title class="monster-card">
       <div>
@@ -21,6 +22,13 @@
           <h1 style="font-family: kings">{{ monster.name }}</h1>
         </div>
         <div>CR:{{ monster.challenge_rating }}</div>
+        <div>
+          {{ monster.speed }}
+        </div>
+        <div>
+          {{ monster.size }}
+        </div>
+        <div>{{ monster.senses }}</div>
       </div>
     </template>
     <template #modal-body>
@@ -214,5 +222,15 @@ export default {
 .monster-card2 {
   display: flex;
   justify-content: space-around;
+}
+
+.change-text:hover {
+  background-image: linear-gradient(45deg, #ff0000, #48ff00, #002bff, #7a00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateX(10px);
+}
+.bg-yellow {
+  background-color: rgba(0, 0, 0, 0.37);
 }
 </style>

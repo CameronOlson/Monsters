@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <img alt="logo" src="../assets/img/cw-logo.png" height="45" />
@@ -25,6 +25,39 @@
           >
             About
           </router-link>
+        </li>
+        <li v-if="user.isAuthenticated === true">
+          <router-link
+            :to="{
+              name: 'Profile',
+              params: { profileId: account.id },
+            }"
+            class="btn selectable text-uppercase text-light"
+          >
+            My Profile
+          </router-link>
+        </li>
+        <li>
+          <router-link
+            :to="{ name: 'FifthEditionPage' }"
+            class="btn selectable text-uppercase text-light"
+          >
+            5e
+          </router-link>
+        </li>
+        <li>
+          <router-link
+            :to="{ name: 'HomebrewPage' }"
+            class="btn selectable text-uppercase text-light"
+          >
+            homebrew
+          </router-link>
+        </li>
+        <li
+          class="btn selectable text-uppercase text-light"
+          @click.prevent="rollDamageDice('3d6')"
+        >
+          DiceRoll
         </li>
       </ul>
       <router-link
@@ -95,10 +128,17 @@
 import { AuthService } from '../services/AuthService'
 import { AppState } from '../AppState'
 import { computed } from 'vue'
+import { monstersService } from "../services/MonstersService"
 export default {
   setup() {
     return {
+      async rollDamageDice(dice) {
+        await monstersService.rollDamageDice(dice)
+      },
       user: computed(() => AppState.user),
+      profile: computed(() => AppState.profile),
+      account: computed(() => AppState.account),
+      project: computed(() => AppState.projects),
       async login() {
         AuthService.loginWithPopup()
       },
@@ -133,5 +173,8 @@ a:hover {
   border-bottom: 2px solid var(--bs-success);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+.bg-black {
+  background-color: black;
 }
 </style>

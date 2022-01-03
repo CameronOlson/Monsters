@@ -15,8 +15,9 @@ export const AccountSchema = new Schema(
 export const ProfileSchema = new Schema(
   {
     name: { type: String, required: true },
-    picture: { type: String }
-    // NOTE if you want to make properties from the account public put them here
+    picture: { type: String },
+    games: { type: String }
+
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )

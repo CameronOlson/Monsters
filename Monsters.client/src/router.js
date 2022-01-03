@@ -11,20 +11,6 @@ const routes = [
     name: 'Home',
     component: loadPage('HomePage'),
     beforeEnter: authSettled,
-    children: [
-      {
-        path: 'fifthEdition',
-        name: 'Home.fifthEdition',
-        component: loadPage('FifthEditionPage'),
-        beforeEnter: authSettled
-      },
-      {
-        path: 'homebrew',
-        name: 'Home.homebrew',
-        component: loadPage('HomebrewPage'),
-        beforeEnter: authSettled
-      }
-    ]
   },
   {
     path: '/about',
@@ -34,13 +20,26 @@ const routes = [
   {
     path: '/battlePage',
     name: 'BattlePage',
-    component: loadPage('BattlePage')
+    component: loadPage('BattlePage'),
+    beforeEnter: authSettled,
   },
   {
     path: '/account',
     name: 'Account',
     component: loadPage('AccountPage'),
     beforeEnter: authGuard
+  },
+  {
+    path: '/homebrew',
+    name: 'HomebrewPage',
+    component: loadPage('HomebrewPage'),
+    beforeEnter: authSettled
+  },
+  {
+    path: '/fifthEdition',
+    name: 'FifthEditionPage',
+    component: loadPage('FifthEditionPage'),
+    beforeEnter: authSettled
   }
 ]
 
