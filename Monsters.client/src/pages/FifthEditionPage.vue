@@ -299,7 +299,7 @@
     </div>
     <div class="row">
       <div class="col-1"></div>
-      <div class="col-10">
+      <div class="col-10 scroll-div">
         <MonsterCard v-for="m in monsters" :key="m.slug" :monster="m" />
       </div>
       <div class="col-1"></div>
@@ -445,6 +445,10 @@ export default {
   left: 0;
   top: 0;
   border-radius: 10px;
+}
+.scroll-div {
+  height: 41rem;
+  overflow: scroll;
 }
 
 @keyframes glowing {

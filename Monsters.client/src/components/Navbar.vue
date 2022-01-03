@@ -53,11 +53,13 @@
             homebrew
           </router-link>
         </li>
-        <li
-          class="btn selectable text-uppercase text-light"
-          @click.prevent="rollDamageDice('3d6')"
-        >
-          DiceRoll
+        <li>
+          <router-link
+            :to="{ name: 'DiceRollPage' }"
+            class="btn selectable text-uppercase text-light"
+          >
+            DiceRoll
+          </router-link>
         </li>
       </ul>
       <router-link

@@ -13,6 +13,8 @@ export const AppState = reactive({
   tokens: [],
   encounters: [],
   maps: [],
-  map: {}
+  map: {},
+  dice: [],
+  diceTotal: {}
 
 })

@@ -16,7 +16,7 @@
     </div>
   </div>
   <Modal :id="'monster' + monster.slug">
-    <template #modal-title class="monster-card">
+    <template #modal-title>
       <div>
         <div>
           <h1 style="font-family: kings">{{ monster.name }}</h1>
@@ -232,5 +232,8 @@ export default {
 }
 .bg-yellow {
   background-color: rgba(0, 0, 0, 0.37);
+}
+.monster-pic {
+  background-image: url("https://media.istockphoto.com/photos/black-brick-wall-background-texture-dark-masonry-picture-id915097804?b=1&k=20&m=915097804&s=170667a&w=0&h=tWu_L3KysRE2q63VYx0LVkPojHmTKTj5TITlh2wMI7g=");
 }
 </style>

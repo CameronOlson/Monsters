@@ -40,7 +40,14 @@ const routes = [
     name: 'FifthEditionPage',
     component: loadPage('FifthEditionPage'),
     beforeEnter: authSettled
+  },
+  {
+    path: '/diceroller',
+    name: 'DiceRollPage',
+    component: loadPage('DiceRollPage'),
+    beforeEnter: authSettled
   }
+
 ]
 
 export const router = createRouter({
