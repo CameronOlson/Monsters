@@ -26,17 +26,7 @@
             About
           </router-link>
         </li>
-        <li v-if="user.isAuthenticated === true">
-          <router-link
-            :to="{
-              name: 'Profile',
-              params: { profileId: account.id },
-            }"
-            class="btn selectable text-uppercase text-light"
-          >
-            My Profile
-          </router-link>
-        </li>
+
         <li>
           <router-link
             :to="{ name: 'FifthEditionPage' }"
@@ -142,7 +132,7 @@ export default {
       account: computed(() => AppState.account),
       project: computed(() => AppState.projects),
       async login() {
-        AuthService.loginWithPopup()
+        await AuthService.loginWithPopup()
       },
       async logout() {
         AuthService.logout({ returnTo: window.location.origin })
