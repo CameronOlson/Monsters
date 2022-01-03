@@ -15,15 +15,11 @@ import Pop from "../utils/Pop"
 export default {
   setup() {
     return {
-      setup() {
-        return {
-          async rollDamageDice(dice) {
-            try {
-              await monstersService.rollDamageDice(dice)
-            } catch (error) {
-              Pop.toast(error, 'error')
-            }
-          }
+      async rollDamageDice(dice) {
+        try {
+          await monstersService.rollDamageDice(dice)
+        } catch (error) {
+          Pop.toast(error, 'error')
         }
       }
     }
