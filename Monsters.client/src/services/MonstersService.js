@@ -86,9 +86,7 @@ class MonstersService {
   async rollDamageDice(dice){
     let rolls = []
     let total = 0
-    let indexOfD = dice.indexOf('d')
-    let numberOfDice = parseInt(dice.slice(0, indexOfD))
-    let sidesOfDice = parseInt(dice.slice(indexOfD + 1))
+    const [numberOfDice, sidesOfDice] = dice.split('d') 
     for(let i = 0; i < numberOfDice; i++){
       rolls.push(Math.floor(Math.random() * sidesOfDice) + 1)
       total += rolls[i]
