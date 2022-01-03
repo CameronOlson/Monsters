@@ -425,7 +425,7 @@ export default {
   background-color: #000;
 }
 .home-brew-pic {
-  background-image: url("https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/349460/092ed99ce7a4222877032b1162a9ee0fdc69fd4e.jpg");
+  background-image: url("https://mocah.org/uploads/posts/1105873-fantasy-art-artwork-dragon-mythology-Dungeons-Dragons-Drizzt-Do-Urden-screenshot-pc-game.jpg");
   height: 50rem;
 }
 </style>
