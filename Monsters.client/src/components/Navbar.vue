@@ -54,8 +54,9 @@
         <li v-if="user.isAuthenticated">
           <router-link
             :to="{ name: 'Profile', params: { profileId: account.id } }"
+            class="btn selectable text-uppercase text-light"
           >
-            <button class="btn text-uppercase text-light">Profile</button>
+            Profile
           </router-link>
         </li>
       </ul>
