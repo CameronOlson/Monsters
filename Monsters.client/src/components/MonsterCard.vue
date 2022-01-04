@@ -29,6 +29,11 @@
           {{ monster.size }}
         </div>
         <div>{{ monster.senses }}</div>
+        <div>
+          <button class="btn-primary" @click.prevent="createUserMonster()">
+            Add To Encounter
+          </button>
+        </div>
       </div>
     </template>
     <template #modal-body>
