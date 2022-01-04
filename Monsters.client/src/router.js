@@ -48,7 +48,7 @@ const routes = [
     beforeEnter: authSettled
   },
   {
-    path: '/profile/:profileId',
+    path: '/profiles/:profileId',
     name: 'Profile',
     component: loadPage('ProfilePage'),
     beforeEnter: authSettled

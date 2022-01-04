@@ -17,6 +17,7 @@ export const AppState = reactive({
   maps: [],
   map: {},
   dice: [],
-  diceTotal: {}
+  diceTotal: {},
+  tempToken: {}
 
 })

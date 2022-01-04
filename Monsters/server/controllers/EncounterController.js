@@ -24,7 +24,7 @@ export class EncounterController extends BaseController {
 
   async getEncountersByProfile(req, res, next) {
     try {
-      const encounters = await encountersService.getEncountersByProfileId(req.params.id)
+      const encounters = await encountersService.getEncountersByProfileId(req.params.profileId)
       res.send(encounters)
     } catch (error) {
       next(error)

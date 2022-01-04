@@ -63,7 +63,7 @@ class EncountersService {
   }
 
   async getEncountersByProfileId(id) {
-    const encounters = await dbContext.Encounters.find({ id })
+    const encounters = await dbContext.Encounters.find({ creatorId: id })
     return encounters
   }
 }

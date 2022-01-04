@@ -1,7 +1,13 @@
 <template>
   <div class="component">
     <div :title="token.name">
-      <img class="token-plug img-fluid" :src="token.picture" alt="" />
+      <img
+        class="token-plug img-fluid"
+        :src="token.picture"
+        alt=""
+        draggable="true"
+        ondragstart="drag(event)"
+      />
     </div>
   </div>
 </template>
