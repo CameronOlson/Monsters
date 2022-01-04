@@ -51,6 +51,13 @@
             DiceRoll
           </router-link>
         </li>
+        <li v-if="user.isAuthenticated">
+          <router-link
+            :to="{ name: 'Profile', params: { profileId: account.id } }"
+          >
+            <button class="btn text-uppercase text-light">Profile</button>
+          </router-link>
+        </li>
       </ul>
       <router-link
         :to="{ name: 'BattlePage' }"

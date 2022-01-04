@@ -46,7 +46,14 @@ const routes = [
     name: 'DiceRollPage',
     component: loadPage('DiceRollPage'),
     beforeEnter: authSettled
-  }
+  },
+  {
+    path: '/profile/:profileId',
+    name: 'Profile',
+    component: loadPage('ProfilePage'),
+    beforeEnter: authSettled
+  },
+    
 
 ]
 
