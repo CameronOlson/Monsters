@@ -31,5 +31,10 @@ class UserMonstersService {
     await monster.save()
     return monster
   }
+
+  async getMonstersByProfileId(profileId) {
+    const monsters = await dbContext.UserMonsters.find({ creatorId: profileId })
+    return monsters
+  }
 }
 export const userMonstersService = new UserMonstersService()

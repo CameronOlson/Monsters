@@ -3,14 +3,15 @@ import { Auth0Provider } from '@bcwdev/auth0provider'
 import BaseController from '../utils/BaseController'
 export class UserMonsterController extends BaseController {
   constructor() {
-    super('api/monsters')
+    super('api')
     this.router
-      .get('', this.getMonsters)
-      .get('/:monsterId', this.getMonsterById)
+      .get('/monsters', this.getMonsters)
+      .get('/monsters/:monsterId', this.getMonsterById)
       .use(Auth0Provider.getAuthorizedUserInfo)
-      .post('', this.createMonster)
-      .put('/:monsterId', this.editMonster)
-      .delete('/:monsterId', this.deleteMonster)
+      .get('/profiles/:profileId/monsters', this.getMonstersByProfileId)
+      .post('/profiles/:profileId/monsters', this.createMonster)
+      .put('/monsters/:monsterId', this.editMonster)
+      .delete('/monsters/:monsterId', this.deleteMonster)
   }
 
   async getMonsters(req, res, next) {
@@ -46,6 +47,15 @@ export class UserMonsterController extends BaseController {
       const monster = await userMonstersService.editMonster(req.params.monsterId, req.userInfo.id, req.body)
       res.send(monster
       )
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getMonstersByProfileId(req, res, next) {
+    try {
+      const monsters = await userMonstersService.getMonstersByProfileId(req.params.profileId)
+      res.send(monsters)
     } catch (error) {
       next(error)
     }

@@ -1,6 +1,7 @@
 import axios from "axios"
 import { AppState } from "../AppState"
 import { logger } from "../utils/Logger"
+import { api } from "./AxiosService"
 
 const monstersApi = axios.create({
   baseURL: 'https://api.open5e.com/monsters/'
