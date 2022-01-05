@@ -40,7 +40,12 @@
             Add To Encounter
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <EncounterItem v-for="e in encounters" :key="e.id" :encounter="e" />
+            <EncounterItem
+              v-for="e in encounters"
+              :key="e.id"
+              :encounter="e"
+              :userMonster="userMonster"
+            />
           </ul>
         </div>
       </div>

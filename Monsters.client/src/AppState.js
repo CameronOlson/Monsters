@@ -11,6 +11,7 @@ export const AppState = reactive({
   previousPage: null,
   spells: [],
   userMonsters: [],
+  userMonster: {},
   token: {},
   tokens: [],
   encounters: [],
