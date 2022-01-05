@@ -30,7 +30,7 @@ export class EncounterMonsterController extends BaseController {
 
   async createEncounterMonster(req, res, next) {
     try {
-      // req.body.encounterId = req.params.encounterId
+      req.body.encounterId = req.userInfo.encounterId
       const encounterMonster = await encountersService.createEncounterMonster(req.body)
       res.send(encounterMonster)
     } catch (error) {

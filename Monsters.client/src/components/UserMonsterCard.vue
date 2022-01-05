@@ -28,6 +28,21 @@
           {{ userMonster.size }}
         </div>
         <div>{{ userMonster.senses }}</div>
+        <div class="dropdown">
+          <button
+            @click.prevent="getEncountersByProfileId(account.id)"
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Add To Encounter
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <EncounterItem v-for="e in encounters" :key="e.id" :encounter="e" />
+          </ul>
+        </div>
       </div>
     </template>
     <template #modal-body>
@@ -169,6 +184,9 @@
 
 
 <script>
+import { computed } from "@vue/reactivity"
+import { encountersService } from "../services/EncountersService"
+import { AppState } from "../AppState"
 export default {
   props: {
     userMonster: {
@@ -177,7 +195,14 @@ export default {
     }
   },
   setup() {
-    return {}
+    return {
+      async getEncountersByProfileId(accountId) {
+        await encountersService.getEncountersByProfile(accountId)
+      },
+      account: computed(() => AppState.account),
+      encounters: computed(() => AppState.encounters),
+      profile: computed(() => AppState.profile)
+    }
   }
 }
 </script>

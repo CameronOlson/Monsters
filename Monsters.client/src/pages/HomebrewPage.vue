@@ -28,7 +28,7 @@
 
     <div class="row m-3">
       <div class="col-12 button-layout">
-        <button class="m-1 glow-on-hover" @click.prevent="getMonsters()">
+        <button class="m-1 glow-on-hover" @click.prevent="getUserMonsters()">
           Get Monsters
         </button>
 
@@ -330,7 +330,10 @@ export default {
       }
     })
     return {
-      userMonsters: computed(() => AppState.userMonsters)
+      userMonsters: computed(() => AppState.userMonsters),
+      async getUserMonsters() {
+        await userMonstersService.getUserMonsters()
+      }
     }
   }
 }
