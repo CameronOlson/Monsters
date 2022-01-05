@@ -12,7 +12,7 @@ class EncountersService {
   }
 
   async createEncounterMonster(body) {
-    const foundEncounterMonster = await dbContext.EncounterMonsters.findOne({ monsterId: body.monsterId, encounterId: body.encounterId })
+    const foundEncounterMonster = await dbContext.EncounterMonsters.findOne({ monsterId: body.userMonsterId, encounterId: body.encounterId })
     if (!foundEncounterMonster) {
       const encounterMonster = await dbContext.EncounterMonsters.create(body)
       await encounterMonster.populate('monster')
