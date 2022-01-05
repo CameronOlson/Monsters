@@ -1,5 +1,5 @@
 <template>
-  <li>{{ encounter.name }} +1</li>
+  <li>Hi</li>
 </template>
 
 
