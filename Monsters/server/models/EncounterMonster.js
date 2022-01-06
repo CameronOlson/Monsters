@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 export const EncounterMonsterSchema = new Schema({
-  userMonsterId: { type: Schema.Types.ObjectId, ref: 'UserMonsters', required: true },
-  encounterId: { type: Schema.Types.ObjectId, ref: 'Encounters', required: true }
+  userMonsterId: { type: Schema.Types.ObjectId, ref: 'UserMonster', required: true },
+  encounterId: { type: Schema.Types.ObjectId, ref: 'Encounter', required: true }
 }, { timestamps: true, toJSON: { virtuals: true } }
 )
 

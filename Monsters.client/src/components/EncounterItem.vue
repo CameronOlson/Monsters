@@ -31,7 +31,7 @@ export default {
         try {
           await encountersService.createEncounterMonster(editable.value)
         } catch (error) {
-          Pop.toast(error, ' This error here boy')
+          Pop.toast(error.message, 'error')
         }
       },
       account: computed(() => AppState.account),
