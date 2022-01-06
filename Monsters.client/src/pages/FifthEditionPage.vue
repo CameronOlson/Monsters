@@ -446,10 +446,6 @@ export default {
   top: 0;
   border-radius: 10px;
 }
-.scroll-div {
-  height: 41rem;
-  overflow: scroll;
-}
 
 @keyframes glowing {
   0% {
@@ -461,6 +457,10 @@ export default {
   100% {
     background-position: 0 0;
   }
+}
+.scroll-div {
+  height: 41rem;
+  overflow: scroll;
 }
 .bg-black {
   background-color: #000;
