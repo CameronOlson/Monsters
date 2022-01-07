@@ -10,8 +10,8 @@ class EncountersService{
     AppState.encounters = res.data
   }
 
-  async createEncounter(data, profileId){
-    const res = await api.post('api/profiles/' + profileId + '/encounters', data)
+  async createEncounter(data){
+    const res = await api.post('api/encounters', data)
     logger.log('create encounter res,', res.data)
     AppState.encounters.push(res.data)
   }

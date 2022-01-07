@@ -1,3 +1,4 @@
+import { Auth0Provider } from '@bcwdev/auth0provider'
 import { encountersService } from '../services/EncountersService'
 import BaseController from '../utils/BaseController'
 
@@ -7,10 +8,11 @@ export class EncounterController extends BaseController {
     this.router
       .get('/encounters', this.getEncounters)
       .get('/profiles/:profileId/encounters/', this.getEncountersByProfile)
-      .get('/profiles/:profileId/encounters/:encounterId', this.getEncounterById)
-      .put('/profiles/:profileId/encounters/:encounterId', this.editEncounter)
-      .post('/profiles/:profileId/encounters', this.createEncounter)
-      .delete('/profiles/:profileId/encounters/:encounterId', this.removeEncounter)
+      .get('/encounters/:encounterId', this.getEncounterById)
+      .use(Auth0Provider.getAuthorizedUserInfo)
+      .put('/encounters/:encounterId', this.editEncounter)
+      .post('/encounters', this.createEncounter)
+      .delete('/encounters/:encounterId', this.removeEncounter)
   }
 
   async getEncounters(req, res, next) {
@@ -51,7 +53,7 @@ export class EncounterController extends BaseController {
 
   async createEncounter(req, res, next) {
     try {
-      req.body.creatorId = req.params.profileId
+      req.body.creatorId = req.userInfo.id
       const encounter = await encountersService.createEncounter(req.body)
       res.send(encounter)
     } catch (error) {
