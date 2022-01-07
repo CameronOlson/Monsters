@@ -53,6 +53,12 @@ const routes = [
     component: loadPage('ProfilePage'),
     beforeEnter: authSettled
   },
+  {
+    path: '/encounters/:id',
+    name: 'Encounter',
+    component: loadPage('EncounterPage'),
+    beforeEnter: authSettled
+  },
     
 
 ]

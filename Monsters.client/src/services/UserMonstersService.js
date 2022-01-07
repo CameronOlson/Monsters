@@ -8,7 +8,8 @@ const userMonstersApi = axios.create({
 })
 class UserMonsterService {
   async getUserMonsters(){
-    const res = await userMonstersApi.get('')
+    debugger
+    const res = await api.get('api/monsters')
     logger.log('this is the userMonsters', res.data)
     AppState.userMonsters = res.data
     logger.log('this is appState', AppState.userMonsters)
