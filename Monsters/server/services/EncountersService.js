@@ -37,7 +37,7 @@ class EncountersService {
   }
 
   async getMonstersByEncounterId(encounterId) {
-    const monsters = await dbContext.EncounterMonsters.find({ encounterId })
+    const monsters = await dbContext.EncounterMonsters.find({ encounterId }).populate('userMonster')
     return monsters
   }
 

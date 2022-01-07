@@ -2,6 +2,13 @@
   <div class="component">hello from the encounter page</div>
   <div>
     <h1>{{ encounter.name }}</h1>
+    <div>
+      <EncounterMonsterCard
+        v-for="e in encounterMonsters"
+        :key="e.id"
+        :encounterMonster="e"
+      />
+    </div>
   </div>
 </template>
 
@@ -17,6 +24,7 @@ export default {
     onMounted(async () => {
       try {
         await encountersService.getEncounterById(route.params.id)
+        await encountersService.getMonstersByEncounterId(route.params.id)
       } catch (error) {
 
       }

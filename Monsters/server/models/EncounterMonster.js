@@ -6,15 +6,15 @@ export const EncounterMonsterSchema = new Schema({
 }, { timestamps: true, toJSON: { virtuals: true } }
 )
 
-EncounterMonsterSchema.virtual('monster', {
-  localField: 'monsterId',
+EncounterMonsterSchema.virtual('userMonster', {
+  localField: 'userMonsterId',
   foreignField: '_id',
-  justOne: true,
-  ref: 'UserMonster'
+  ref: 'UserMonster',
+  justOne: true
 })
 EncounterMonsterSchema.virtual('encounter', {
   localField: 'encounterId',
   foreignField: '_id',
-  justOne: true,
-  ref: 'Encounter'
+  ref: 'Encounter',
+  justOne: true
 })

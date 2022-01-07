@@ -5,8 +5,8 @@ export class EncounterMonsterController extends BaseController {
   constructor() {
     super('api')
     this.router
-      .get('/profiles/:id/encounters/:encounterId/monsters', this.getMonstersByEncounterId)
-      .get('/profiles/:id/encounters/:encounterId/monsters/:monsterId', this.getMonsterById)
+      .get('/encounters/:encounterId/monsters', this.getMonstersByEncounterId)
+      .get('/encounters/:encounterId/monsters/:monsterId', this.getMonsterById)
       .post('/encounterMonsters', this.createEncounterMonster)
   }
 
