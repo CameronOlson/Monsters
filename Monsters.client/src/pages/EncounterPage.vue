@@ -30,7 +30,8 @@ export default {
       }
     })
     return {
-      encounter: computed(() => AppState.encounter)
+      encounter: computed(() => AppState.encounter),
+      encounterMonsters: computed(() => AppState.encounterMonsters)
     }
   }
 }
