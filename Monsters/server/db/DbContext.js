@@ -11,7 +11,7 @@ class DbContext {
   Values = mongoose.model('Value', ValueSchema);
   Account = mongoose.model('Account', AccountSchema);
   Profiles = mongoose.model('Profile', ProfileSchema, 'accounts');
-  UserMonsters = mongoose.model('Monster', UserMonsterSchema);
+  UserMonsters = mongoose.model('UserMonster', UserMonsterSchema);
   Encounters = mongoose.model('Encounter', EncounterSchema);
 
   EncounterMonsters = mongoose.model('EncounterMonster', EncounterMonsterSchema);
