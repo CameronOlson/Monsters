@@ -7,6 +7,7 @@ export const AppState = reactive({
   profile: {},
   profiles: [],
   monsters: [],
+  monster: {},
   nextPage: null,
   previousPage: null,
   spells: [],

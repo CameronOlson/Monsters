@@ -31,7 +31,7 @@ export const UserMonsterSchema = new Schema(
     senses: { type: String, required: false },
     size: { type: String, required: true },
     special_abilities: { type: [{ name: { type: String, required: false }, desc: { type: String, required: false } }], required: false },
-    speed: { type: String, required: true },
+    speed: { type: {} },
     new_spells: { type: [{ name: { type: String, required: false }, desc: { type: String, required: false } }], required: false },
     spell_list: { type: [String], required: false },
     strength: { type: Number, required: true },

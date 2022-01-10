@@ -29,10 +29,27 @@
           {{ monster.size }}
         </div>
         <div>{{ monster.senses }}</div>
-        <div>
-          <button class="btn-primary" @click.prevent="createUserMonster()">
+        <div class="dropdown">
+          <button
+            @click.prevent="
+              getEncountersByProfileId(account.id), createUserMonster(monster)
+            "
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             Add To Encounter
           </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <MainEncounterItem
+              v-for="e in encounters"
+              :key="e.id"
+              :encounter="e"
+              :monster="monster"
+            />
+          </ul>
         </div>
       </div>
     </template>
@@ -180,6 +197,8 @@ import { monstersService } from "../services/MonstersService"
 import Pop from "../utils/Pop"
 import { logger } from "../utils/Logger"
 import { AppState } from "../AppState"
+import { userMonstersService } from "../services/UserMonstersService"
+import { encountersService } from "../services/EncountersService"
 export default {
   props: {
     monster: {
@@ -187,7 +206,7 @@ export default {
       required: true
     }
   },
-  setup() {
+  setup(props) {
     AppState.spells = []
 
 
@@ -212,6 +231,38 @@ export default {
           Pop.toast(error, 'error')
         }
       },
+      async getEncountersByProfileId(accountId) {
+        await encountersService.getEncountersByProfile(accountId)
+      },
+
+      async createUserMonster() {
+        try {
+          AppState.monster.alignment = props.monster.alignment
+          AppState.monster.armor_class = props.monster.armor_class
+          AppState.monster.alignment = props.monster.alignment
+          AppState.monster.charisma = props.monster.charisma
+          AppState.monster.constitution = props.monster.constitution
+          AppState.monster.damage_vulnerabilities = "props.monster.damage_vulnerabilities"
+          AppState.monster.dexterity = props.monster.dexterity
+          AppState.monster.hit_points = props.monster.hit_points
+          AppState.monster.intelligence = props.monster.intelligence
+          AppState.monster.languages = props.monster.languages
+          AppState.monster.name = props.monster.name
+          AppState.monster.perception = props.monster.perception
+          AppState.monster.size = props.monster.size
+          AppState.monster.speed = props.monster.speed
+          AppState.monster.strength = props.monster.strength
+          AppState.monster.type = props.monster.type
+          AppState.monster.wisdom = props.monster.wisdom
+          logger.log(AppState.monster)
+          const data = AppState.monster
+          await userMonstersService.createUserMonster(data, this.account.id)
+        } catch (error) {
+          Pop.toast(error, 'error')
+        }
+      },
+      account: computed(() => AppState.account),
+      encounters: computed(() => AppState.encounters),
       spells: computed(() => AppState.spells)
     }
   }

@@ -19,6 +19,10 @@ class UserMonsterService {
     AppState.userMonsters.push(res.data)
 
   }
+  async createNewUserMonster(monsterData){
+    const res = await api.post('api/monsters')
+    logger.log(monsterData)
+  }
   async getUserMonstersByProfileId(profileId){
     logger.log(AppState.userMonsters)
     const res = await api.get('api/profiles/' + profileId + '/monsters')
