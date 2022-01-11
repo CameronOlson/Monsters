@@ -248,7 +248,7 @@ export default {
           AppState.monster.intelligence = props.monster.intelligence
           AppState.monster.languages = props.monster.languages
           AppState.monster.name = props.monster.name
-          AppState.monster.perception = props.monster.perception
+          AppState.monster.perception = 6
           AppState.monster.size = props.monster.size
           AppState.monster.speed = props.monster.speed
           AppState.monster.strength = props.monster.strength

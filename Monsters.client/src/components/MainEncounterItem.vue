@@ -13,6 +13,7 @@ import { userMonstersService } from "../services/UserMonstersService"
 import { monstersService } from "../services/MonstersService"
 import { encountersService } from "../services/EncountersService"
 import { logger } from "../utils/Logger"
+import { watchEffect } from "@vue/runtime-core"
 export default {
   props: {
     encounter: {
@@ -26,8 +27,9 @@ export default {
   },
   setup(props) {
     const thatMonster = AppState.monster
+    const thisMonster = AppState.userMonsters.slice(-1)[0]
 
-    const editable = ref({ userMonsterId: thatMonster.id, encounterId: props.encounter.id })
+    const editable = ref({ userMonsterId: thisMonster.id, encounterId: props.encounter.id })
     return {
       editable,
       async addUserMonsterToEncounter() {
@@ -39,7 +41,7 @@ export default {
         }
       },
       account: computed(() => AppState.account),
-      // userMonster: computed(() => AppState.userMonster),
+      userMonsters: computed(() => AppState.userMonsters),
       encounters: computed(() => AppState.encounters),
       monster: computed(() => AppState.monster)
     }

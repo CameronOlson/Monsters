@@ -2,7 +2,7 @@
   <div
     class="selectable bg-yellow m-1"
     data-bs-toggle="modal"
-    :data-bs-target="'#encounterMonster' + encounterMonster.userMonster.id"
+    :data-bs-target="'#encounterMonster' + encounterMonster.userMonsterId"
   >
     <div class="col-12 card-body monster-card change-text text-light">
       <div class="col-3">
