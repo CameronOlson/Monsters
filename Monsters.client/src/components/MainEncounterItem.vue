@@ -12,24 +12,36 @@ import Pop from "../utils/Pop"
 import { userMonstersService } from "../services/UserMonstersService"
 import { monstersService } from "../services/MonstersService"
 import { encountersService } from "../services/EncountersService"
+import { logger } from "../utils/Logger"
 export default {
   props: {
     encounter: {
       type: Object,
       required: true
     },
-    monster: {
-      type: Object,
-      required: true
-    }
+    // userMonster: {
+    //   type: Object,
+    //   required: true
+    // }
   },
   setup(props) {
-    const editable = ref({ userMonsterId: props.monster._id, encounterId: props.encounter.id })
+    const thatMonster = AppState.monster
+
+    const editable = ref({ userMonsterId: thatMonster.id, encounterId: props.encounter.id })
     return {
       editable,
+      async addUserMonsterToEncounter() {
+        try {
+          debugger
+          await encountersService.createEncounterMonster(editable.value)
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      },
       account: computed(() => AppState.account),
-      userMonster: computed(() => AppState.userMonster),
-      encounters: computed(() => AppState.encounters)
+      // userMonster: computed(() => AppState.userMonster),
+      encounters: computed(() => AppState.encounters),
+      monster: computed(() => AppState.monster)
     }
   }
 }

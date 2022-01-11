@@ -47,7 +47,7 @@
               v-for="e in encounters"
               :key="e.id"
               :encounter="e"
-              :monster="monster"
+              :monster="userMonster"
             />
           </ul>
         </div>
@@ -254,6 +254,10 @@ export default {
           AppState.monster.strength = props.monster.strength
           AppState.monster.type = props.monster.type
           AppState.monster.wisdom = props.monster.wisdom
+
+
+
+
           logger.log(AppState.monster)
           const data = AppState.monster
           await userMonstersService.createUserMonster(data, this.account.id)
