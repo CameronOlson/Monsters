@@ -1,6 +1,6 @@
 <template>
   <div
-    @click.prevent="getSpells(monster.spell_list)"
+    @click.prevent="getSpells(monster.spell_list), createUserMonster(monster)"
     class="selectable bg-yellow m-1"
     data-bs-toggle="modal"
     :data-bs-target="'#monster' + monster.slug"
@@ -31,7 +31,7 @@
         <div>{{ monster.senses }}</div>
         <div class="dropdown">
           <button
-            @click.prevent="createUserMonster(monster)"
+            @click.prevent="getEncountersByProfileId(account.id)"
             class="btn btn-secondary dropdown-toggle"
             type="button"
             id="dropdownMenuButton1"

@@ -12,14 +12,10 @@ class EncountersService {
   }
 
   async createEncounterMonster(body) {
-    const foundEncounterMonster = await dbContext.EncounterMonsters.findOne({ userMonsterId: body.userMonsterId, encounterId: body.encounterId })
-    if (!foundEncounterMonster) {
-      const encounterMonster = await dbContext.EncounterMonsters.create(body)
-      await encounterMonster.populate('userMonster')
-      await encounterMonster.populate('encounter')
-      return encounterMonster
-    }
-    throw new BadRequest('already taken')
+    const encounterMonster = await dbContext.EncounterMonsters.create(body)
+    await encounterMonster.populate('userMonster')
+    await encounterMonster.populate('encounter')
+    return encounterMonster
   }
 
   async getMonstersById(monsterId) {

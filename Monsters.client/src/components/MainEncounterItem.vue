@@ -26,10 +26,10 @@ export default {
     // }
   },
   setup(props) {
-    const thatMonster = AppState.monster
-    const thisMonster = AppState.userMonsters.find(x => x.slug === thatMonster.slug)
+    const thatMonster = AppState.userMonster
+    // const thisMonster = AppState.userMonsters.findOne({ slug: thatMonster.slug })
 
-    const editable = ref({ userMonsterId: thisMonster.id, encounterId: props.encounter.id })
+    const editable = ref({ userMonsterId: thatMonster.id, encounterId: props.encounter.id })
     return {
       editable,
       async addUserMonsterToEncounter() {
@@ -43,7 +43,8 @@ export default {
       account: computed(() => AppState.account),
       userMonsters: computed(() => AppState.userMonsters),
       encounters: computed(() => AppState.encounters),
-      monster: computed(() => AppState.monster)
+      monster: computed(() => AppState.monster),
+      userMonster: computed(() => AppState.userMonster)
     }
   }
 }

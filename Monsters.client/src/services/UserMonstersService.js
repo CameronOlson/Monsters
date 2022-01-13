@@ -16,12 +16,13 @@ class UserMonsterService {
   async createUserMonster(monsterData, profileId) {
     const res = await api.post('api/profiles/' + profileId + '/monsters', monsterData)
     logger.log('This is the created monster', res.data)
-    AppState.userMonsters.push(res.data)
+    AppState.userMonsters.push(res.data),
+    AppState.userMonster = res.data
 
   }
   async createNewUserMonster(monsterData){
     const res = await api.post('api/monsters')
-    logger.log(monsterData)
+    logger.log('userMonsters', monsterData)
   }
   async getUserMonstersByProfileId(profileId){
     logger.log(AppState.userMonsters)
