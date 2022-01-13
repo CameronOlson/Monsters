@@ -31,9 +31,7 @@
         <div>{{ monster.senses }}</div>
         <div class="dropdown">
           <button
-            @click.prevent="
-              getEncountersByProfileId(account.id), createUserMonster(monster)
-            "
+            @click.prevent="createUserMonster(monster)"
             class="btn btn-secondary dropdown-toggle"
             type="button"
             id="dropdownMenuButton1"
@@ -238,6 +236,7 @@ export default {
       async createUserMonster() {
         try {
           AppState.monster.alignment = props.monster.alignment
+          AppState.monster.slug = props.monster.slug
           AppState.monster.armor_class = props.monster.armor_class
           AppState.monster.alignment = props.monster.alignment
           AppState.monster.charisma = props.monster.charisma

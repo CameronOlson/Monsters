@@ -27,7 +27,7 @@ export default {
   },
   setup(props) {
     const thatMonster = AppState.monster
-    const thisMonster = AppState.userMonsters.slice(-1)[0]
+    const thisMonster = AppState.userMonsters.find(x => x.slug === thatMonster.slug)
 
     const editable = ref({ userMonsterId: thisMonster.id, encounterId: props.encounter.id })
     return {

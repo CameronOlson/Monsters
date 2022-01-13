@@ -2,8 +2,11 @@ import { dbContext } from '../db/DbContext'
 
 class UserMonstersService {
   async createMonster(monsterData) {
-    const monster = await dbContext.UserMonsters.create(monsterData)
-    return monster
+    const foundMonster = await dbContext.UserMonsters.findOne({ slug: monsterData.slug })
+    if (!foundMonster) {
+      const monster = await dbContext.UserMonsters.create(monsterData)
+      return monster
+    }
   }
 
   async getMonsterById(id) {

@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 export const UserMonsterSchema = new Schema(
   {
     creatorId: { type: Schema.Types.ObjectId, ref: 'Account', required: true },
+    slug: { type: String, required: false },
     actions: { type: [{ name: { type: String, required: false }, desc: { type: String, required: false } }], required: false },
     alignment: { type: String, required: false },
     armor_class: { type: Number, required: false },
