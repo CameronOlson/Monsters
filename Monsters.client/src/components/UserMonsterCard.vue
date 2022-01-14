@@ -4,7 +4,10 @@
     data-bs-toggle="modal"
     :data-bs-target="'#userMonster' + userMonster.id"
   >
-    <div class="col-12 card-body monster-card change-text text-light">
+    <div
+      v-if="!userMonster.slug"
+      class="col-12 card-body monster-card change-text text-light"
+    >
       <div class="col-3">
         {{ userMonster.name }}
       </div>

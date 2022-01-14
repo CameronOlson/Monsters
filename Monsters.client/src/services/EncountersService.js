@@ -26,6 +26,7 @@ class EncountersService{
     AppState.encounter = res.data
   }
   async getMonstersByEncounterId(encounterId){
+    
     const res = await api.get('api/encounters/'+ encounterId + '/monsters')
     logger.log('encounter monsters res', res.data)
     AppState.encounterMonsters = res.data

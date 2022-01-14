@@ -14,14 +14,14 @@
 
 
 <script>
-import { computed, onMounted } from "@vue/runtime-core"
+import { computed, onMounted, watchEffect } from "@vue/runtime-core"
 import { useRoute } from "vue-router"
 import { encountersService } from "../services/EncountersService"
 import { AppState } from "../AppState"
 export default {
   setup() {
     const route = useRoute()
-    onMounted(async () => {
+    watchEffect(async () => {
       try {
         await encountersService.getEncounterById(route.params.id)
         await encountersService.getMonstersByEncounterId(route.params.id)
