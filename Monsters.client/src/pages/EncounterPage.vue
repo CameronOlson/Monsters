@@ -1,5 +1,4 @@
 <template>
-  <div class="component">hello from the encounter page</div>
   <div>
     <h1>{{ encounter.name }}</h1>
     <div>
