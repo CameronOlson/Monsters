@@ -28,16 +28,16 @@
 
     <div class="row m-3">
       <div class="col-12 button-layout">
-        <button class="m-1 glow-on-hover" @click.prevent="getMonsters()">
+        <button class="m-1 glow" @click.prevent="getMonsters()">
           Get Monsters
         </button>
 
-        <button class="m-1 glow-on-hover" @click="toggleAscending()">
+        <button class="m-1 glow" @click="toggleAscending()">
           Toggle by AC
         </button>
 
         <button
-          class="glow-on-hover"
+          class="glow"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
@@ -126,7 +126,7 @@
         </ul>
 
         <button
-          class="glow-on-hover"
+          class="glow"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
@@ -282,7 +282,7 @@
 
         <button
           v-if="nextPage"
-          class="glow-on-hover"
+          class="glow"
           @click.prevent="changePage(nextPage)"
         >
           next page
@@ -290,7 +290,7 @@
 
         <button
           v-if="previousPage"
-          class="glow-on-hover"
+          class=""
           @click.prevent="changePage(previousPage)"
         >
           previous page
@@ -393,81 +393,56 @@ export default {
   display: flex;
   justify-content: space-evenly;
 }
-
-.glow-on-hover {
-  width: 220px;
-  height: 50px;
-  color: rgb(255, 255, 255);
+.glow {
+  width: 10rem;
+  height: 4rem;
   border: none;
-  outline: none;
+  color: aliceblue;
+  background: rgb(0, 0, 0);
+
   position: relative;
+  border-radius: 10px;
   z-index: 0;
-  border-radius: 10px;
 }
-
-.glow-on-hover:before {
+.glow:hover {
+  color: rgb(255, 230, 0);
+  transition: color 0.5s ease-in-out;
+}
+.glow:before {
   content: "";
-  background: linear-gradient(
-    45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
-  );
+  background: linear-gradient(red, orange, yellow, brown, rgb(0, 0, 0));
   position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
+  color: red;
   z-index: -1;
+  top: -3px;
+  left: -5px;
+  width: calc(100% + 13px);
+  height: calc(100% + 13px);
   filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
+
+  transition: opacity 0.5s ease-in-out;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
   border-radius: 10px;
 }
-
-.glow-on-hover:active {
-  color: rgba(199, 17, 17, 0);
-}
-
-.glow-on-hover:active:after {
+.glow:active:after {
   background: transparent;
 }
-
-.glow-on-hover:hover:before {
+.glow:hover:before {
   opacity: 1;
 }
-
-.glow-on-hover:after {
+.glow:after {
+  color: aliceblue;
   z-index: -1;
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgb(17, 17, 17);
+  background: url("https://media.moddb.com/images/mods/1/24/23941/wall2.jpg");
   left: 0;
   top: 0;
   border-radius: 10px;
 }
 
-@keyframes glowing {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 400% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
 .scroll-div {
   height: 41rem;
   overflow: scroll;

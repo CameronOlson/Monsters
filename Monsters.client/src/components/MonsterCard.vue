@@ -275,6 +275,7 @@ export default {
 
 <style lang="scss" scoped>
 .monster-card {
+  background-image: url("https://media.moddb.com/images/mods/1/24/23941/wall2.jpg");
   display: flex;
   justify-content: space-between;
 }
@@ -284,13 +285,20 @@ export default {
 }
 
 .change-text:hover {
-  background-image: linear-gradient(45deg, #ff0000, #48ff00, #002bff, #7a00ff);
+  background-image: linear-gradient(
+    45deg,
+    #ff0000,
+    orange,
+    yellow,
+    brown,
+    black
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transform: translateX(10px);
+  transform: translateX(5px);
 }
 .bg-yellow {
-  background-color: rgba(0, 0, 0, 0.37);
+  background-color: rgba(0, 0, 0, 0);
 }
 .monster-pic {
   background-image: url("https://media.istockphoto.com/photos/black-brick-wall-background-texture-dark-masonry-picture-id915097804?b=1&k=20&m=915097804&s=170667a&w=0&h=tWu_L3KysRE2q63VYx0LVkPojHmTKTj5TITlh2wMI7g=");

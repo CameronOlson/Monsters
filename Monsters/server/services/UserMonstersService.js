@@ -6,7 +6,7 @@ class UserMonstersService {
     if (!foundMonster) {
       const monster = await dbContext.UserMonsters.create(monsterData)
       return monster
-    }
+    } return foundMonster
   }
 
   async getMonsterById(id) {
