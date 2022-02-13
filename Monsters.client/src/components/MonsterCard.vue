@@ -236,13 +236,14 @@ export default {
       async createUserMonster() {
         try {
           AppState.monster.alignment = props.monster.alignment
+          AppState.monster.challenge_rating = props.monster.challenge_rating
           AppState.monster.slug = props.monster.slug
           AppState.monster.armor_class = props.monster.armor_class
           AppState.monster.alignment = props.monster.alignment
           AppState.monster.charisma = props.monster.charisma
           AppState.monster.constitution = props.monster.constitution
-          AppState.monster.damage_vulnerabilities = "props.monster.damage_vulnerabilities"
-          AppState.monster.dexterity = props.monster.dexterity
+          AppState.monster.damage_vulnerabilities =
+            AppState.monster.dexterity = props.monster.dexterity
           AppState.monster.hit_points = props.monster.hit_points
           AppState.monster.intelligence = props.monster.intelligence
           AppState.monster.languages = props.monster.languages

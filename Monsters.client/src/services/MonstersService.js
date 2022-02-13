@@ -18,7 +18,8 @@ class MonstersService {
     )
     AppState.monsters = res.data.results
     AppState.nextPage = res.data.next
-    logger.log(AppState.nextPage)
+
+    logger.log('this is appstate.monsters', AppState.monsters)
   }
 
   async getMonstersBySearch(query) {
