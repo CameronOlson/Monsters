@@ -235,25 +235,41 @@ export default {
 
       async createUserMonster() {
         try {
-          AppState.monster.alignment = props.monster.alignment
-          AppState.monster.challenge_rating = props.monster.challenge_rating
           AppState.monster.slug = props.monster.slug
+          AppState.monster.actions = props.monster.actions
           AppState.monster.armor_class = props.monster.armor_class
           AppState.monster.alignment = props.monster.alignment
+          AppState.monster.challenge_rating = props.monster.cha
+          AppState.monster.alignment = props.monster.alignment
           AppState.monster.charisma = props.monster.charisma
+          AppState.monster.charisma_save = props.monster.charisma_save
+          AppState.monster.condition_immunities = props.monster.condition_immunities
           AppState.monster.constitution = props.monster.constitution
-          AppState.monster.damage_vulnerabilities =
-            AppState.monster.dexterity = props.monster.dexterity
+          AppState.monster.constitution_save = props.monster.constitution_save
+          AppState.monster.damage_immunities = props.monster.damage_immunities
+          AppState.monster.damage_resistance = props.monster.damage_resistance
+          AppState.monster.damage_vulnerabilities = props.monster.damage_vulnerabilities
+          AppState.monster.dexterity = props.monster.dexterity
+          AppState.monster.dexterity_save = props.monster.dexterity_save
           AppState.monster.hit_points = props.monster.hit_points
           AppState.monster.intelligence = props.monster.intelligence
+          AppState.monster.intelligence_save = props.monster.intelligence_save
           AppState.monster.languages = props.monster.languages
+          // AppState.monster.legendary_actions = props.monster.legendary_actions
+          AppState.monster.legendary_desc = props.monster.legendary_desc
+          AppState.monster.reactions = props.monster.reactions
           AppState.monster.name = props.monster.name
-          AppState.monster.perception = 6
+          // AppState.monster.perception = props.monster.perception
+          // AppState.monster.special_abilities = props.monster.special_abilities
+          AppState.monster.senses = props.monster.senses
           AppState.monster.size = props.monster.size
           AppState.monster.speed = props.monster.speed
           AppState.monster.strength = props.monster.strength
+          AppState.monster.strength_save = props.monster.strength_save
           AppState.monster.type = props.monster.type
+          AppState.monster.subtype = props.monster.subtype
           AppState.monster.wisdom = props.monster.wisdom
+          AppState.monster.wisdom_save = props.monster.wisdom_save
 
 
 
@@ -305,3 +321,4 @@ export default {
   background-image: url("https://media.istockphoto.com/photos/black-brick-wall-background-texture-dark-masonry-picture-id915097804?b=1&k=20&m=915097804&s=170667a&w=0&h=tWu_L3KysRE2q63VYx0LVkPojHmTKTj5TITlh2wMI7g=");
 }
 </style>
+
