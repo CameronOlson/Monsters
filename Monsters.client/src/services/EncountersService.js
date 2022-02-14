@@ -18,6 +18,7 @@ class EncountersService{
   async createEncounterMonster(body) {
     const res = await api.post('api/encounterMonsters', body)
     logger.log('post encounterMonster', res)
+    logger.log("AppState.userMonster", AppState.userMonster)
     AppState.encounterMonsters = res.data
   }
   async getEncounterById(profileId){

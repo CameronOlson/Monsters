@@ -8,7 +8,7 @@ export const UserMonsterSchema = new Schema(
     actions: { type: [{ name: { type: String, required: false }, desc: { type: String, required: false } }], required: false },
     alignment: { type: String, required: false },
     armor_class: { type: Number, required: false },
-    armor_desc: { type: Number, required: false },
+    armor_desc: { type: String, required: false },
     challenge_rating: { type: String, required: false },
     charisma: { type: Number, required: false },
     charisma_save: { type: Number, required: false },

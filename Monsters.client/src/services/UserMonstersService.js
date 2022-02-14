@@ -18,6 +18,7 @@ class UserMonsterService {
     logger.log('This is the created monster', res.data)
     AppState.userMonsters.push(res.data),
     AppState.userMonster = res.data
+    logger.log("AppState.userMonster", AppState.userMonster)
 
   }
   async createNewUserMonster(monsterData){

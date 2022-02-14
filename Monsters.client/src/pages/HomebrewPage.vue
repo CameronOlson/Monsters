@@ -57,14 +57,14 @@ import Pop from "../utils/Pop"
 import { watchEffect } from "@vue/runtime-core"
 export default {
   setup() {
-    watchEffect(async () => {
-      try {
-        AppState.userMonsters = []
-        await userMonstersService.getUserMonsters()
-      } catch (error) {
-        Pop.toast(error)
-      }
-    })
+    // watchEffect(async () => {
+    //   try {
+    //     AppState.userMonsters = []
+    //     await userMonstersService.getUserMonsters()
+    //   } catch (error) {
+    //     Pop.toast(error)
+    //   }
+    // })
     return {
       userMonsters: computed(() => AppState.userMonsters),
       async getUserMonsters() {

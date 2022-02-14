@@ -1,5 +1,8 @@
 <template>
-  <div @click.prevent="addUserMonsterToEncounter()" class="component">
+  <div
+    @click.prevent="addUserMonsterToEncounter()"
+    class="component selectable"
+  >
     {{ encounter.name }}
   </div>
 </template>
@@ -26,22 +29,20 @@ export default {
     // }
   },
   setup(props) {
-    const thatMonster = AppState.userMonster
-    // const thisMonster = AppState.userMonsters.findOne({ slug: thatMonster.slug })
-
-    const editable = ref({ userMonsterId: thatMonster.id, encounterId: props.encounter.id })
+    const editable = ref({ userMonsterId: AppState.userMonster.id, encounterId: props.encounter.id })
     return {
       editable,
       async addUserMonsterToEncounter() {
         try {
-          debugger
+          logger.log("this is what you are looking for", AppState.userMonster.id)
+          logger.log(editable.value)
           await encountersService.createEncounterMonster(editable.value)
         } catch (error) {
           Pop.toast(error.message, 'error')
         }
       },
       account: computed(() => AppState.account),
-      userMonsters: computed(() => AppState.userMonsters),
+      // userMonsters: computed(() => AppState.userMonsters),
       encounters: computed(() => AppState.encounters),
       monster: computed(() => AppState.monster),
       userMonster: computed(() => AppState.userMonster)

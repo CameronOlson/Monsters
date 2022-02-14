@@ -1,6 +1,6 @@
 <template>
   <div
-    @click.prevent="getSpells(monster.spell_list), createUserMonster(monster)"
+    @click.prevent="getSpells(monster.spell_list), createUserMonster()"
     class="selectable bg-yellow m-1"
     data-bs-toggle="modal"
     :data-bs-target="'#monster' + monster.slug"
@@ -235,11 +235,12 @@ export default {
 
       async createUserMonster() {
         try {
+          AppState.userMonster = {}
           AppState.monster.slug = props.monster.slug
           AppState.monster.actions = props.monster.actions
           AppState.monster.armor_class = props.monster.armor_class
           AppState.monster.alignment = props.monster.alignment
-          AppState.monster.challenge_rating = props.monster.cha
+          AppState.monster.challenge_rating = props.monster.challenge_rating
           AppState.monster.alignment = props.monster.alignment
           AppState.monster.charisma = props.monster.charisma
           AppState.monster.charisma_save = props.monster.charisma_save
@@ -270,12 +271,8 @@ export default {
           AppState.monster.subtype = props.monster.subtype
           AppState.monster.wisdom = props.monster.wisdom
           AppState.monster.wisdom_save = props.monster.wisdom_save
-
-
-
-
-          logger.log(AppState.monster)
           const data = AppState.monster
+          console.log("UserMonster", AppState.userMonster)
           await userMonstersService.createUserMonster(data, this.account.id)
         } catch (error) {
           Pop.toast(error, 'error')

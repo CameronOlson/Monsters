@@ -317,14 +317,14 @@ import { watchEffect } from "@vue/runtime-core"
 import { userMonstersService } from "../services/UserMonstersService"
 export default {
   setup() {
-    watchEffect(async () => {
-      try {
-        AppState.userMonsters = []
-        await userMonstersService.getUserMonsters()
-      } catch (error) {
-        Pop.toast(error)
-      }
-    })
+    // watchEffect(async () => {
+    //   try {
+    //     AppState.userMonsters = []
+    //     await userMonstersService.getUserMonsters()
+    //   } catch (error) {
+    //     Pop.toast(error)
+    //   }
+    // })
     const query = ref('')
     const ascending = ref(true)
 

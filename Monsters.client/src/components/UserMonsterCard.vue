@@ -15,6 +15,12 @@
 
       <div class="col-3">AC: {{ userMonster.armor_class }}</div>
       <div class="col-3">HP: {{ userMonster.hit_points }}</div>
+      <router-link
+        @click.stop
+        :to="{ name: 'Profile', params: { id: userMonster.creatorId } }"
+      >
+        <img class="small-pic" :src="userMonster.creator.picture" alt="" />
+      </router-link>
     </div>
   </div>
   <Modal :id="'userMonster' + userMonster.id">
