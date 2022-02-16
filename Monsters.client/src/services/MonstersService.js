@@ -18,14 +18,11 @@ class MonstersService {
     )
     AppState.monsters = res.data.results
     AppState.nextPage = res.data.next
-
-    logger.log('this is appstate.monsters', AppState.monsters)
   }
 
   async getMonstersBySearch(query) {
     AppState.monsters = []
     const res = await monstersApi.get('?type=' + query)
-    logger.log('this is the res query', res)
     AppState.monsters = res.data.results
   }
   async getMonstersByName(query) {

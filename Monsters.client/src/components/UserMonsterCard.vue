@@ -15,12 +15,6 @@
 
       <div class="col-3">AC: {{ userMonster.armor_class }}</div>
       <div class="col-3">HP: {{ userMonster.hit_points }}</div>
-      <router-link
-        @click.stop
-        :to="{ name: 'Profile', params: { id: userMonster.creatorId } }"
-      >
-        <img class="small-pic" :src="userMonster.creator.picture" alt="" />
-      </router-link>
     </div>
   </div>
   <Modal :id="'userMonster' + userMonster.id">
@@ -142,7 +136,7 @@
                 </div>
                 <br />
                 <div>
-                  <div v-for="spells in spells" :key="spells.name">
+                  <!-- <div v-for="spells in spells" :key="spells.name">
                     <div class="card">
                       <div class="card-body">
                         <div class="card-header">
@@ -158,7 +152,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>

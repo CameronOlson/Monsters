@@ -281,19 +281,18 @@
         </ul>
 
         <button
+          v-if="previousPage"
+          class="glow"
+          @click.prevent="changePage(previousPage)"
+        >
+          previous page
+        </button>
+        <button
           v-if="nextPage"
           class="glow"
           @click.prevent="changePage(nextPage)"
         >
           next page
-        </button>
-
-        <button
-          v-if="previousPage"
-          class=""
-          @click.prevent="changePage(previousPage)"
-        >
-          previous page
         </button>
       </div>
     </div>
@@ -452,6 +451,5 @@ export default {
 }
 .five-e-pic {
   background-image: url("https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/349460/092ed99ce7a4222877032b1162a9ee0fdc69fd4e.jpg");
-  height: 50rem;
 }
 </style>

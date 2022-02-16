@@ -45,7 +45,6 @@
               v-for="e in encounters"
               :key="e.id"
               :encounter="e"
-              :monster="userMonster"
             />
           </ul>
         </div>

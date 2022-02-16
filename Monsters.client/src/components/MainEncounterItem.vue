@@ -29,14 +29,13 @@ export default {
     // }
   },
   setup(props) {
-    const editable = ref({ userMonsterId: AppState.userMonster.id, encounterId: props.encounter.id })
     return {
-      editable,
       async addUserMonsterToEncounter() {
         try {
-          logger.log("this is what you are looking for", AppState.userMonster.id)
-          logger.log(editable.value)
-          await encountersService.createEncounterMonster(editable.value)
+          debugger
+          const editable = { userMonsterId: AppState.userMonster.id, encounterId: props.encounter.id }
+
+          await encountersService.createEncounterMonster(editable)
         } catch (error) {
           Pop.toast(error.message, 'error')
         }

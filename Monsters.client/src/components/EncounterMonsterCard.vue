@@ -4,7 +4,7 @@
     data-bs-toggle="modal"
     :data-bs-target="'#encounterMonster' + encounterMonster.userMonsterId"
   >
-    <div class="col-12 card-body monster-card change-text text-light">
+    <div class="col-10 m-auto card-body monster-card change-text text-light">
       <div class="col-3">
         {{ encounterMonster.userMonster.name }}
       </div>
@@ -140,7 +140,7 @@
                   <strong> Spells </strong>
                 </div>
                 <br />
-                <div>
+                <!-- <div>
                   <div v-for="spells in spells" :key="spells.name">
                     <div class="card">
                       <div class="card-body">
@@ -158,7 +158,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>

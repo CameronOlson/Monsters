@@ -16,10 +16,10 @@ class EncountersService{
     AppState.encounters.push(res.data)
   }
   async createEncounterMonster(body) {
+
     const res = await api.post('api/encounterMonsters', body)
-    logger.log('post encounterMonster', res)
-    logger.log("AppState.userMonster", AppState.userMonster)
     AppState.encounterMonsters = res.data
+    logger.log("This is the APPSTATE.encounterMonsters",AppState.encounterMonsters )
   }
   async getEncounterById(profileId){
     const res = await api.get('api/encounters/' + profileId)

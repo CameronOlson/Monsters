@@ -5,6 +5,7 @@ class UserMonstersService {
     const foundMonster = await dbContext.UserMonsters.findOne({ slug: monsterData.slug })
     if (!foundMonster || monsterData.slug == null) {
       const monster = await dbContext.UserMonsters.create(monsterData)
+      await monster.populate('creator', 'name picture')
       return monster
     } return foundMonster
   }
