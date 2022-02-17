@@ -32,7 +32,6 @@ export default {
     return {
       async addUserMonsterToEncounter() {
         try {
-          debugger
           const editable = { userMonsterId: AppState.userMonster.id, encounterId: props.encounter.id }
 
           await encountersService.createEncounterMonster(editable)
