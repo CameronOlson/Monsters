@@ -43,14 +43,14 @@
             homebrew
           </router-link>
         </li>
-        <li>
+        <!-- <li>
           <router-link
             :to="{ name: 'DiceRollPage' }"
             class="btn selectable text-uppercase text-light"
           >
             DiceRoll
           </router-link>
-        </li>
+        </li> -->
         <li v-if="user.isAuthenticated">
           <router-link
             :to="{ name: 'Profile', params: { profileId: account.id } }"

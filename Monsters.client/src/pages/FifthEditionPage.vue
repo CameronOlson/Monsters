@@ -443,13 +443,17 @@ export default {
 }
 
 .scroll-div {
-  height: 41rem;
+  height: 70vh;
   overflow: scroll;
 }
 .bg-black {
   background-color: #000;
 }
 .five-e-pic {
-  background-image: url("https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/349460/092ed99ce7a4222877032b1162a9ee0fdc69fd4e.jpg");
+  background-image: url("https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/349460/092ed99ce7a4222877032b1162a9ee0fdc69fd4e.jpg")
+    no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: scroll;
 }
 </style>

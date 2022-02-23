@@ -41,12 +41,12 @@ const routes = [
     component: loadPage('FifthEditionPage'),
     beforeEnter: authSettled
   },
-  {
-    path: '/diceroller',
-    name: 'DiceRollPage',
-    component: loadPage('DiceRollPage'),
-    beforeEnter: authSettled
-  },
+  // {
+  //   path: '/diceroller',
+  //   name: 'DiceRollPage',
+  //   component: loadPage('DiceRollPage'),
+  //   beforeEnter: authSettled
+  // },
   {
     path: '/profiles/:profileId',
     name: 'Profile',
