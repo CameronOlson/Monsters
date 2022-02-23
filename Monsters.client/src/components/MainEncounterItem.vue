@@ -17,6 +17,7 @@ import { monstersService } from "../services/MonstersService"
 import { encountersService } from "../services/EncountersService"
 import { logger } from "../utils/Logger"
 import { watchEffect } from "@vue/runtime-core"
+import { Modal } from "bootstrap"
 export default {
   props: {
     encounter: {
@@ -35,6 +36,7 @@ export default {
           const editable = { userMonsterId: AppState.userMonster.id, encounterId: props.encounter.id }
 
           await encountersService.createEncounterMonster(editable)
+          Pop.toast("This has been added to your encounter")
         } catch (error) {
           Pop.toast(error.message, 'error')
         }
